@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ishtar Station Chamber of Commerce: promoting local business and economic growth.">
+    <meta name="author" content="Matthew Remington">
+    <link rel="icon" href="favicon.svg">
+    <title>Ishtar Station CoC - Business Directory</title>
+    <meta property="og:title" content="Ishtar Station Chamber of Commerce">
+    <meta property="og:description" content="Ishtar Station Chamber of Commerce: promoting local business and economic growth.">
+    <meta property="og:image" content="images/iss_logo.webp">
+    <meta property="og:url" content="https://skriller22.github.io/wdd231/chamber">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="styles/base.css" rel="stylesheet">
+    <link href="styles/larger.css" rel="stylesheet">
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/date.js" defer></script>
+    <script src="scripts/directory.js" defer></script>
+    <script src="scripts/theme.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="header-title">
+            <img src="favicon.svg" class="logo-image" width="64px">
+            <h2>Ishtar Station Chamber of Commerce</h2>
+            <button id="theme-toggle" type="button">
+                <img src="images/light-mode.svg" width="32px">
+            </button>
+            <button id="hamburger-close" type="button" aria-expanded="false" aria-label="Open menu" aria-controls="site-nav">
+                <img src="images/menu-open.svg">
+            </button>
+        </div>
+        <nav id="site-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="directory.html" aria-current="page">Directory</a></li>
+                <li><a href="join.html">Join</a></li>
+                <li><a href="discover.html">Discover</a></li>
+                <li><a href="siteplan.html">Site Plan</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Directory</h1>
+        <div class="directory-view-toggle">
+            <button id="grid-view" type="button" aria-label="Grid view">Grid</button>
+            <button id="list-view" type="button" aria-label="List view">List</button>
+        </div>
+        <div id="directory-cards" class="directory-cards grid-view">
+            <!-- Business cards will be dynamically inserted here -->
+        </div>
+    </main>
+    <footer>
+        <div class="footer-contact">
+            <p><strong>Ishtar Station Chamber of Commerce</strong></p>
+            <p>Venus, second planet from the Sun</p>
+            <p>Central District</p>
+            <p>info@ishtarstation.com</p>
+            <p>(555) 123-4567</p>
+        </div>
+        <div class="footer-social">
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><img src="images/facebook.svg" alt="Facebook Icon" class="icon"></a>
+            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><img src="images/x.svg" alt="Twitter Icon" class="icon"></a>
+            <a href="https://www.theplanetarysociety.org" target="_blank" rel="noopener noreferrer"><img src="images/theplanetarysociety.svg" alt="The Planetary Society Icon" class="icon"></a>
+        </div>
+        <div class="footer-copyright">
+            <p>WDD231 Class Project</p>
+            <p>Matthew Remington - Idaho, USA</p>
+            <p>&copy; <span id="currentyear"></span> Ishtar Station Chamber of Commerce</p>
+            <p id="lastModified">Last Modification</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300" role="img" aria-label="Starlit Cinema and Zero-G Theater logo">
+  <rect width="300" height="300" fill="#1a1a3e"/>
+  <rect x="55" y="105" width="190" height="110" rx="10" fill="#f0e6ff"/>
+  <path d="M130 135l50 25-50 25z" fill="#1a1a3e"/>
+  <g fill="#ffd966">
+    <path d="M70 60l5 12 12 5-12 5-5 12-5-12-12-5 12-5z"/>
+    <path d="M225 50l4 9 9 4-9 4-4 9-4-9-9-4 9-4z"/>
+    <path d="M150 245l4 9 9 4-9 4-4 9-4-9-9-4 9-4z"/>
+  </g>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300" role="img" aria-label="Perihelion Legal and Salvage Law logo">
+  <rect width="300" height="300" fill="#7c2d12"/>
+  <rect x="144" y="70" width="12" height="150" fill="#fcd9a8"/>
+  <rect x="100" y="220" width="100" height="14" rx="4" fill="#fcd9a8"/>
+  <rect x="65" y="88" width="170" height="10" rx="5" fill="#fcd9a8"/>
+  <circle cx="150" cy="75" r="12" fill="#fff"/>
+  <path d="M65 98l-30 70h60zM235 98l-30 70h60z" fill="none" stroke="#fcd9a8" stroke-width="4"/>
+  <path d="M35 168a30 14 0 0 0 60 0zM205 168a30 14 0 0 0 60 0z" fill="#fff"/>
+</svg>

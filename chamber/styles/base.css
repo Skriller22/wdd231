@@ -1,0 +1,283 @@
+:root {
+    --primary-color: #2F3061;
+    --secondary-color: #ffe253;
+    --tertiary-color: #8D9FB0;
+    --background-color: #1B1C2E;
+    --text-color: #343434;
+    --body-color: #2F3061;
+    --page-text-color: #F2F2F2;
+    --font-family: 'Lato', sans-serif;
+    --mobile-breakpoint: 768px;
+}
+
+:root.light-mode {
+    --background-color: #F7FFF7;
+    --body-color: #D9DEEC;
+    --page-text-color: #343434;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    cursor: pointer;
+}
+
+.icon {
+    width: 48px;
+    height: 48px;
+}
+
+body {
+    background-color: var(--body-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    max-width: 2048px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--text-color);
+    color: white;
+}
+
+.logo-image {
+    display: flex;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
+    margin: 0.5rem 0;
+    margin-right: 0.5rem;
+}
+
+.header-title h2 {
+    margin: 0;
+}
+
+.header-title button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+}
+
+#site-nav {
+    display: none;
+}
+
+#site-nav.open {
+    display: flex;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+nav ul li {
+    text-align: center;
+    list-style: none;
+    width: 100%;
+    border-top: solid black 1px;
+}
+
+nav ul li:last-child {
+    border-bottom: solid black 1px;
+}
+
+nav ul li a {
+    display: block;
+    width: 100%;
+    background-color: var(--tertiary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: larger;
+    padding: 0.5rem;
+}
+
+nav ul li a:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+nav ul li a[aria-current="page"] {
+    font-weight: bold;
+}
+
+/* Main */
+main {
+    background-color: var(--background-color);
+    color: var(--page-text-color);
+    padding: 1rem;
+}
+
+/* Directory */
+.directory-view-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.directory-view-toggle button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--tertiary-color);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.directory-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.directory-cards.list-view {
+    display: flex;
+    flex-direction: column;
+}
+
+.directory-cards.list-view {
+    gap: 0.5rem;
+}
+
+/* Compact list cards for small screens: logo beside the text */
+.directory-cards.list-view .sample-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 0 0.75rem;
+    padding: 0.5rem;
+}
+
+.directory-cards.list-view .sample-card > * {
+    grid-column: 2;
+}
+
+.directory-cards.list-view .sample-card img {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    width: 56px;
+    height: 56px;
+}
+
+.directory-cards.list-view .sample-card h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.directory-cards.list-view .card-contact-info {
+    margin: 0;
+    font-size: 0.875rem;
+}
+
+.sample-card img {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    aspect-ratio: 1;
+    border-radius: 8px;
+}
+
+.sample-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--tertiary-color);
+    color: var(--primary-color);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.directory-cards.grid-view .card-contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 220px;
+    text-align: center;
+}
+
+.card-contact-info {
+    margin: 0.5rem 0;
+}
+
+.card-contact-info p {
+    margin: 0.2rem 0;
+}
+
+/* Footer */
+footer {
+    background-color: var(--text-color);
+    color: white;
+    padding: 0.5rem 0;
+}
+
+footer p {
+    margin: 4px;
+    text-align: left;
+}
+
+.footer-contact, .footer-copyright {
+    margin: 1em 8px;
+}
+
+.footer-social {
+    background-color: var(--tertiary-color);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: var(--mobile-breakpoint);
+    margin: 0 auto;
+    padding: 0.8rem 0;
+}
+
+.footer-social a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-color);
+    border-radius: 50%;
+    padding: 0.5rem;
+    width: 64px;
+    height: 64px;
+}
+
+/* The icons are black; invert them to white on the dark background */
+.footer-social a img {
+    filter: invert(1);
+}
+
+:root.light-mode .footer-social a img {
+    filter: none;
+}

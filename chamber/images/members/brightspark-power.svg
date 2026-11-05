@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300" role="img" aria-label="Brightspark Electrical and Power Grid logo">
+  <rect width="300" height="300" fill="#b45309"/>
+  <circle cx="150" cy="150" r="100" fill="#fef3c7" opacity=".25"/>
+  <path d="M170 45L95 165h50l-15 90 80-125h-52z" fill="#fde047" stroke="#fff7cc" stroke-width="5" stroke-linejoin="round"/>
+</svg>

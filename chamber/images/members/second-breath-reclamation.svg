@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300" role="img" aria-label="Second Breath Air and Water Reclamation logo">
+  <rect width="300" height="300" fill="#1f6f8b"/>
+  <path d="M150 55c40 55 65 85 65 115a65 65 0 0 1-130 0c0-30 25-60 65-115z" fill="#bfe9f5"/>
+  <path d="M110 175c25-25 55 25 80 0" fill="none" stroke="#1f6f8b" stroke-width="9" stroke-linecap="round"/>
+  <path d="M110 200c25-25 55 25 80 0" fill="none" stroke="#1f6f8b" stroke-width="9" stroke-linecap="round" opacity=".6"/>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300" role="img" aria-label="Tether and Weld Hull Repair logo">
+  <rect width="300" height="300" fill="#4a5568"/>
+  <path d="M70 230l95-95" stroke="#cbd5e0" stroke-width="30" stroke-linecap="round"/>
+  <path d="M150 95a45 45 0 0 1 65-20l-28 28 10 25 25 10 28-28a45 45 0 0 1-55 60z" fill="#f6ad55"/>
+  <g stroke="#fbd38d" stroke-width="6" stroke-linecap="round">
+    <path d="M70 70l22 22M50 110l28 8M110 50l8 28"/>
+  </g>
+</svg>

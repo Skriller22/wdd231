@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300" role="img" aria-label="Deep Signal Network and Comms logo">
+  <rect width="300" height="300" fill="#0b3d5c"/>
+  <path d="M150 130l-40 120h80z" fill="#7dd3fc"/>
+  <circle cx="150" cy="120" r="12" fill="#fff"/>
+  <g fill="none" stroke="#7dd3fc" stroke-width="8" stroke-linecap="round">
+    <path d="M115 85a50 50 0 0 0 0 70"/>
+    <path d="M185 85a50 50 0 0 1 0 70"/>
+    <path d="M90 65a85 85 0 0 0 0 110" opacity=".7"/>
+    <path d="M210 65a85 85 0 0 1 0 110" opacity=".7"/>
+  </g>
+</svg>

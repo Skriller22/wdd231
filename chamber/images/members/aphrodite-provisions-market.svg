@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300" role="img" aria-label="Aphrodite Provisions Market logo">
+  <rect width="300" height="300" fill="#c2503a"/>
+  <path d="M60 110h180l-15-45H75z" fill="#fff"/>
+  <path d="M75 65l-8 45h33l5-45zM130 65l-2 45h44l-2-45zM200 65l5 45h33l-8-45z" fill="#ffd9cf"/>
+  <rect x="75" y="110" width="150" height="110" fill="#ffe9e3"/>
+  <rect x="130" y="150" width="40" height="70" fill="#c2503a"/>
+  <rect x="88" y="130" width="30" height="30" fill="#c2503a" opacity=".5"/>
+  <rect x="182" y="130" width="30" height="30" fill="#c2503a" opacity=".5"/>
+</svg>
