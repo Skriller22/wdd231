@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300" role="img" aria-label="Venusian Rose Hotel and Suites logo">
+  <rect width="300" height="300" fill="#9d2b47"/>
+  <circle cx="150" cy="120" r="55" fill="#f9c5d1"/>
+  <path d="M150 175v70" stroke="#c8f0d4" stroke-width="8" stroke-linecap="round"/>
+  <path d="M150 215c-30 0-42-18-42-32 30 0 42 12 42 32zM150 230c25 0 38-14 38-26-25 0-38 10-38 26z" fill="#8fe0a8"/>
+</svg>

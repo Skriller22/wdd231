@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300" role="img" aria-label="Halcyon Medical and Radiation Clinic logo">
+  <rect width="300" height="300" fill="#0f8a8a"/>
+  <circle cx="150" cy="150" r="95" fill="#e0f7f7"/>
+  <path d="M130 90h40v40h40v40h-40v40h-40v-40H90v-40h40z" fill="#0f8a8a"/>
+</svg>

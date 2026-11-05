@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300" role="img" aria-label="Free Orbit Salvage and Resale logo">
+  <rect width="300" height="300" fill="#556b2f"/>
+  <g fill="none" stroke="#e6efc9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M150 65a85 85 0 0 1 73 42"/>
+    <path d="M223 193a85 85 0 0 1-146 0"/>
+    <path d="M77 107a85 85 0 0 1 73-42" opacity=".0"/>
+    <path d="M77 193A85 85 0 0 1 77 107"/>
+  </g>
+  <path d="M215 80l20 32-37 6zM70 220l-20-32 37-6zM80 70l-8 37 32-14z" fill="#e6efc9"/>
+  <circle cx="150" cy="150" r="22" fill="#fde68a"/>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300" role="img" aria-label="Cloudtop Hydroponics logo">
+  <rect width="300" height="300" fill="#2f7d4f"/>
+  <ellipse cx="150" cy="215" rx="95" ry="28" fill="#e8f5ec" opacity=".35"/>
+  <ellipse cx="110" cy="205" rx="55" ry="26" fill="#e8f5ec"/>
+  <ellipse cx="185" cy="200" rx="60" ry="30" fill="#e8f5ec"/>
+  <path d="M150 190V110" stroke="#c8f0d4" stroke-width="8" stroke-linecap="round"/>
+  <path d="M150 140c-40 0-55-30-55-50 40 0 55 20 55 50z" fill="#8fe0a8"/>
+  <path d="M150 120c35 0 50-25 50-45-35 0-50 17-50 45z" fill="#c8f0d4"/>
+</svg>

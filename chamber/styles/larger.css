@@ -1,0 +1,67 @@
+@media screen and (min-width: 768px) {
+    #hamburger-close {
+        display: none;
+    }
+    
+    #site-nav {
+        display: flex;
+        justify-content: center;
+    }
+
+    nav ul {
+        flex-direction: row;
+    }
+
+    nav ul li {
+        border-bottom: none;
+        border-top: none;
+    }
+
+    /* Directory list view */
+    .directory-cards.list-view {
+        gap: 1rem;
+    }
+
+    .directory-cards.list-view .sample-card {
+        grid-template-columns: auto 1fr auto;
+        gap: 0.5rem 1rem;
+        padding: 1rem;
+    }
+
+    .directory-cards.list-view .sample-card > * {
+        grid-column: auto;
+    }
+
+    .directory-cards.list-view .sample-card img {
+        grid-row: auto;
+        width: 64px;
+        height: 64px;
+    }
+
+    .directory-cards.list-view .sample-card h3 {
+        grid-column: 1 / -1;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid currentColor;
+        font-size: 1.17em;
+    }
+
+    .directory-cards.list-view .card-contact-info {
+        margin: 0.5rem 0;
+        font-size: 1rem;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+
+    .footer-social {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        background-color: inherit;
+        gap: 0.5rem;
+    }
+}
