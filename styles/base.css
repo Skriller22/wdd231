@@ -2,11 +2,13 @@
     --branding-c1: rgb(37, 37, 37);
     --branding-c2: rgb(90, 110, 96);
     --branding-c3: rgb(217, 219, 218);
+    --branding-c4:rgb(247, 255, 247);
     --branding-cdarker: rgba(37, 37, 37, 0.8);
     --branding-clighter: rgba(255, 255, 255, 0.2);
+    --branding-clightest: rgba(255, 255, 255, 0.1);
     --branding-bd1: solid black 1px;
     --branding-bd2: solid black 2px;
-    --max-width: 320px;
+    --max-width: 768px;
 }
 
 a {
@@ -25,6 +27,36 @@ li {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* Animated gradient on the h1 while the link is hovered or focused */
+.smooth-highlight h1, .smooth-highlight-item {
+    transition: color 0.4s ease;
+}
+
+.smooth-highlight:hover h1,
+.smooth-highlight:focus-visible h1,
+.smooth-highlight-item:hover,
+.smooth-highlight-item:focus-visible {
+    color: #fff;
+    background-image: linear-gradient(90deg, var(--branding-c1), var(--branding-c2), var(--branding-c1));
+    background-size: 200% 100%;
+    background-repeat: repeat-x;
+    animation: gradient-shift 6s linear infinite;
+}
+
+@keyframes gradient-shift {
+    from { background-position: 0% 50%; }
+    to { background-position: 200% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .smooth-highlight:hover h1,
+    .smooth-highlight:focus-visible h1,
+    .smooth-highlight-item:hover,
+    .smooth-highlight-item:focus-visible {
+        animation: none;
+    }
 }
 
 body {
@@ -75,6 +107,7 @@ header {
 
 nav {
     display: none;
+    background-color: var(--branding-c2);
     max-width: var(--max-width);
     width: 100%;
 }
@@ -89,12 +122,11 @@ nav ul {
 
 nav ul li {
     border-top: var(--branding-bd1);
-    background-color: var(--branding-c2);
     width: 100%;
     height: 100%;
 }
 
-nav ul:last-child {
+nav ul li:last-child {
     border-bottom: var(--branding-bd1);
 }
 
@@ -108,34 +140,68 @@ nav ul li a {
     padding: 10px;
 }
 
-nav ul li a:hover {
-    color: var(--branding-c1);
-    background-color: var(--branding-clighter);
-}
-
-nav ul li a[aria-current="page"] {
-    font-weight: bold;
+nav ul li a:hover,
+nav ul li a:focus-visible {
+    color: white;
     background-color: var(--branding-cdarker);
 }
 
-nav ul li a[aria-current="page"]:hover {
-    color: white;
+/* Wayfinding: darker fill plus a white bar, so the width never changes (no hover twitch) */
+nav ul li a[aria-current="page"] {
     background-color: var(--branding-c1);
+    box-shadow: inset 0 -3px 0 white;
+}
+
+/* Chamber link styles */
+.chamber-link {
+    background-color: var(--branding-c4);
+    border: var(--branding-bd1);
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+}
+
+.chamber-link p {
+    margin-bottom: 1rem;
+}
+
+.chamber-link h1 {
+    background-color: var(--branding-c3);
+    width: 100%;
+    padding: 4px;
+    margin-bottom: 1rem;
+}
+
+.chamber-link div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 main {
     border-top: var(--branding-bd2);
     padding: 1rem 8px 0;
+    width: 100%;
     max-width: var(--max-width);
 }
 
 main h1 {
     text-align: center;
+    margin-bottom: 0.5rem;
 }
 
 .main-card {
     background-color: var(--branding-c3);
-    margin: 0.5rem 0;
+    margin: 1rem 0;
 }
 
 .main-card h2 {
@@ -146,7 +212,14 @@ main h1 {
 }
 
 .main-card p {
-    padding: 4px;
+    padding: 0.75rem;
+}
+
+.main-card .about-me-text {
+    padding: 1.5rem 1.25rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 65ch;
 }
 
 #photo-me {
@@ -162,7 +235,9 @@ main h1 {
 
 #photo-me img {
     width: 100%;
+    max-width: 360px;
     height: auto;
+    margin-bottom: 0.75rem;
 }
 
 #student-photo {
@@ -177,7 +252,8 @@ main h1 {
 
 .course-filters {
     display: flex;
-    justify-content: space-around;
+    gap: 0.5rem;
+    padding: 4px 8px;
     background-color: white;
 }
 
@@ -189,7 +265,7 @@ main h1 {
     border: solid black 1px;
     border-radius: 5px;
     margin: 4px 0px;
-    width: 82px;
+    flex: 1;
     height: 36px;
     font-family: inherit;
     font-size: 1rem;
