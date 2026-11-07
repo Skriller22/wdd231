@@ -1,10 +1,10 @@
 :root {
-    --primary-color: #2F3061;
+    --primary-color: #1f1f41;
     --secondary-color: #ffe253;
     --tertiary-color: #8D9FB0;
     --background-color: #1B1C2E;
     --text-color: #343434;
-    --body-color: #2F3061;
+    --body-color: #1f1f41;
     --page-text-color: #F2F2F2;
     --font-family: 'Lato', sans-serif;
     --mobile-breakpoint: 768px;
@@ -165,9 +165,6 @@ main {
 .directory-cards.list-view {
     display: flex;
     flex-direction: column;
-}
-
-.directory-cards.list-view {
     gap: 0.5rem;
 }
 
