@@ -27,10 +27,6 @@
     box-sizing: border-box;
 }
 
-a {
-    cursor: pointer;
-}
-
 .icon {
     width: 48px;
     height: 48px;
@@ -54,8 +50,6 @@ header {
 }
 
 .logo-image {
-    display: flex;
-    justify-content: center;
     width: 64px;
     height: 64px;
 }
@@ -65,8 +59,7 @@ header {
     align-items: center;
     justify-content: space-around;
     gap: 1rem;
-    margin: 0.5rem 0;
-    margin-right: 0.5rem;
+    margin: 0.5rem 0.5rem 0.5rem 0;
 }
 
 .header-title h2 {
@@ -121,7 +114,6 @@ nav ul li {
 
 nav ul li a {
     display: block;
-    width: 100%;
     background-color: var(--tertiary-color);
     color: var(--primary-color);
     text-decoration: none;
@@ -129,7 +121,10 @@ nav ul li a {
     padding: 0.5rem;
 }
 
-nav ul li a:hover {
+nav ul li a:hover,
+.home-hero-section .hero-btn:hover,
+.event-link a:hover,
+.spotlight-link a:hover {
     background-color: var(--secondary-color);
     color: var(--primary-color);
 }
@@ -170,7 +165,6 @@ main {
 
 .home-hero-section img {
     width: 100%;
-    max-width: 100%;
     height: auto;
 }
 
@@ -187,23 +181,15 @@ main {
 
 .home-hero-section .hero-btn {
     position: absolute;
-    text-decoration: none;
-    top: 20%;
-    bottom: auto;
+    top: 33%;
     left: 70%;
     transform: translateX(-50%);
     background-color: var(--page-text-color);
     color: var(--background-color);
-    border: none;
     border-radius: 4px;
     padding: 0.5rem 1rem;
-    cursor: pointer;
     font-size: 1.125rem;
-}
-
-.home-hero-section .hero-btn:hover {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
+    text-decoration: none;
 }
 
 .home-content-section {
@@ -225,6 +211,75 @@ main {
     border-top: 1px solid var(--page-text-color);
 }
 
+/* Shared card, heading, and detail-row styles */
+.event-card,
+.bio-dome-weather,
+.spotlight-card {
+    border-radius: 8px;
+}
+
+.event-card h3,
+.bio-dome-weather h3,
+.spotlight-card h3,
+.event-description,
+.event-link,
+.weather-report,
+.weather-reading,
+.spotlight-detail,
+.spotlight-link {
+    text-align: center;
+}
+
+.event-details,
+.spotlight-details,
+.weather-readings,
+.weather-forecast {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.spotlight-details,
+.weather-readings,
+.weather-forecast {
+    width: 100%;
+    margin: 0;
+}
+
+.weather-reading,
+.spotlight-detail,
+.weather-forecast li {
+    background-color: var(--tertiary-color);
+    border-radius: 6px;
+}
+
+.event-detail dt,
+.weather-reading dt,
+.spotlight-detail dt {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.event-detail dd,
+.spotlight-detail dd {
+    margin: 0.15rem 0 0;
+    font-weight: 700;
+}
+
+.event-link a,
+.spotlight-link a {
+    display: block;
+    padding: 0.75rem 0;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+}
+
+.spotlight-link a {
+    border-radius: 6px;
+}
+
+/* Current events */
 .current-events {
     display: flex;
     flex-direction: column;
@@ -240,7 +295,6 @@ main {
     justify-content: space-between;
     background-color: var(--primary-color-light);
     color: var(--primary-color-dark);
-    border-radius: 8px;
     max-width: 400px;
     width: 100%;
     border: 1px solid var(--page-text-color);
@@ -253,15 +307,9 @@ main {
 }
 
 .event-card h3 {
-    text-align: center;
     font-size: 1.25rem;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--primary-color);
-}
-
-.event-details {
-    display: grid;
-    gap: 0.5rem;
 }
 
 .event-detail {
@@ -273,40 +321,14 @@ main {
 }
 
 .event-detail dt {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
     color: var(--secondary-color);
 }
 
-.event-detail dd {
-    margin: 0.15rem 0 0;
-    font-weight: 700;
-}
-
-.event-description {
-    text-align: center;
-}
-
 .event-link {
-    text-align: center;
     margin: 0.5rem 0 0;
 }
 
-.event-link a {
-    display: block;
-    width: 100%;
-    padding: 0.75rem 0;
-    background-color: var(--primary-color);
-    color: white;
-    text-decoration: none;
-}
-
-.event-link a:hover {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-}
-
+/* Weather */
 .bio-dome-weather {
     display: flex;
     flex-direction: column;
@@ -314,33 +336,18 @@ main {
     justify-content: center;
     background-color: var(--tertiary-color-light);
     color: var(--primary-color);
-    border-radius: 8px;
     border-top: 6px solid var(--tertiary-color-dark);
     max-width: 400px;
     width: 100%;
     padding: 1rem;
-    box-sizing: border-box;
 }
 
 .weather-readings {
-    display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
-    width: 100%;
-    margin: 0;
 }
 
 .weather-reading {
-    text-align: center;
     padding: 0.5rem 0.25rem;
-    background-color: var(--tertiary-color);
-    border-radius: 6px;
-}
-
-.weather-reading dt {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
 }
 
 .weather-reading dd {
@@ -354,21 +361,15 @@ main {
     width: 100%;
     margin: 1rem 0 0.5rem;
     padding-top: 0.75rem;
-    text-align: center;
     font-size: 1.1rem;
     border-top: 1px solid var(--primary-color);
 }
 
 .weather-report {
     margin: 0;
-    text-align: center;
 }
 
 .weather-forecast {
-    display: grid;
-    gap: 0.5rem;
-    width: 100%;
-    margin: 0;
     padding: 0;
     list-style: none;
 }
@@ -377,8 +378,6 @@ main {
     display: flex;
     justify-content: space-between;
     padding: 0.5rem 0.75rem;
-    background-color: var(--tertiary-color);
-    border-radius: 6px;
 }
 
 .forecast-temp {
@@ -386,6 +385,7 @@ main {
     font-variant-numeric: tabular-nums;
 }
 
+/* Membership spotlight */
 .membership-spotlight {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -401,7 +401,6 @@ main {
     padding: 1rem;
     background-color: var(--tertiary-color-light);
     color: var(--primary-color);
-    border-radius: 8px;
     border-top: 6px solid var(--primary-color-light);
 }
 
@@ -409,7 +408,6 @@ main {
     width: 100%;
     margin: 0;
     padding-bottom: 0.5rem;
-    text-align: center;
     font-size: 1.25rem;
     border-bottom: 1px solid var(--primary-color);
 }
@@ -437,57 +435,29 @@ main {
     background-color: var(--tertiary-color);
 }
 
-.spotlight-card img {
+.spotlight-card img,
+.sample-card img {
     width: 100%;
-    max-width: 150px;
     height: auto;
     aspect-ratio: 1;
     border-radius: 8px;
 }
 
-.spotlight-details {
-    display: grid;
-    gap: 0.5rem;
-    width: 100%;
-    margin: 0;
+.spotlight-card img {
+    max-width: 150px;
+}
+
+.sample-card img {
+    max-width: 220px;
 }
 
 .spotlight-detail {
     padding: 0.5rem;
-    text-align: center;
-    background-color: var(--tertiary-color);
-    border-radius: 6px;
-}
-
-.spotlight-detail dt {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.spotlight-detail dd {
-    margin: 0.15rem 0 0;
-    font-weight: 700;
 }
 
 .spotlight-link {
     width: 100%;
     margin: auto 0 0;
-    text-align: center;
-}
-
-.spotlight-link a {
-    display: block;
-    padding: 0.75rem 0;
-    border-radius: 6px;
-    background-color: var(--primary-color);
-    color: white;
-    text-decoration: none;
-}
-
-.spotlight-link a:hover {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
 }
 
 /* Site Plan */
@@ -557,14 +527,6 @@ main {
 .directory-cards.list-view .card-contact-info {
     margin: 0;
     font-size: 0.875rem;
-}
-
-.sample-card img {
-    width: 100%;
-    max-width: 220px;
-    height: auto;
-    aspect-ratio: 1;
-    border-radius: 8px;
 }
 
 .sample-card {
