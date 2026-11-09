@@ -6,10 +6,10 @@
     <meta name="description" content="Ishtar Station Chamber of Commerce: promoting local business and economic growth.">
     <meta name="author" content="Matthew Remington">
     <link rel="icon" href="favicon.svg">
-    <title>Ishtar Station Chamber of Commerce</title>
+    <title>Ishtar Station CoC - Home</title>
     <meta property="og:title" content="Ishtar Station Chamber of Commerce">
     <meta property="og:description" content="Ishtar Station Chamber of Commerce: promoting local business and economic growth.">
-    <meta property="og:image" content="images/iss_logo.webp">
+    <meta property="og:image" content="https://skriller22.github.io/wdd231/chamber/favicon.svg">
     <meta property="og:url" content="https://skriller22.github.io/wdd231/chamber">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,16 +20,19 @@
     <script src="scripts/navigation.js" defer></script>
     <script src="scripts/theme.js" defer></script>
     <script src="scripts/date.js" defer></script>
+    <script src="scripts/events.js" defer></script>
+    <script src="scripts/spotlight.js" defer></script>
+    <script src="scripts/weather.js" defer></script>
 </head>
 <body>
     <header>
         <div class="header-title">
             <img src="favicon.svg" class="logo-image" alt="Ishtar Station Chamber of Commerce Logo">
             <h2>Ishtar Station Chamber of Commerce</h2>
-            <button id="theme-toggle" type="button" aria-label="Toggle theme">
+            <button class="header-btn" id="theme-toggle" type="button" aria-label="Toggle theme">
                 <img src="images/light-mode.svg" alt="Toggle theme">
             </button>
-            <button id="hamburger-close" type="button" aria-expanded="false" aria-label="Open menu" aria-controls="site-nav">
+            <button class="header-btn" id="hamburger-close" type="button" aria-expanded="false" aria-label="Open menu" aria-controls="site-nav">
                 <img src="images/menu-open.svg" alt="Open menu">
             </button>
         </div>
@@ -43,13 +46,72 @@
             </ul>
         </nav>
     </header>
+    <main class="home-main">
+        <section class="home-hero-section">
+            <h1>Welcome to Ishtar Station</h1>
+            <img src="images/venus-01.webp" alt="Venus, the planet" class="home-hero">
+            <a class="hero-btn" id="join-button" href="join.html">Join the Chamber</a>
+            <p>Welcome to the Ishtar Station Chamber of Commerce! We are dedicated to promoting the economic growth and development of the Venusian community.</p>
+        </section>
+        <section class="home-content-section">
+            <h2>Current Events</h2>
+            <div class="current-events">
+                <div class="event-card">
+                    <h3>Event Title</h3>
+                    <dl class="event-details">
+                        <div class="event-detail">
+                            <dt>Date</dt>
+                            <dd>--</dd>
+                        </div>
+                        <div class="event-detail">
+                            <dt>Location</dt>
+                            <dd>--</dd>
+                        </div>
+                        <div class="event-detail">
+                            <dt>Host</dt>
+                            <dd>--</dd>
+                        </div>
+                    </dl>
+                    <p class="event-description">Description</p>
+                    <p class="event-link"><a href="discover.html">More Info</a></p>
+                </div>
+            </div>
+            <h2>Bio-Dome Weather</h2>
+            <div class="bio-dome-weather">
+                <dl class="weather-readings">
+                    <div class="weather-reading">
+                        <dt>Temperature</dt>
+                        <dd id="weather-temp">--</dd>
+                    </div>
+                    <div class="weather-reading">
+                        <dt>Humidity</dt>
+                        <dd id="weather-humidity">--</dd>
+                    </div>
+                    <div class="weather-reading">
+                        <dt>Wind</dt>
+                        <dd id="weather-wind">--</dd>
+                    </div>
+                </dl>
+                <h3>Nature Center Report</h3>
+                <p class="weather-report">--</p>
+                <h3>3-Day Forecast</h3>
+                <ul class="weather-forecast">
+                    <li><span class="forecast-day">--</span> <span class="forecast-temp">--</span></li>
+                </ul>
+            </div>
+            <h2>Chamber Membership Spotlight</h2>
+            <div class="membership-spotlight">
+                <!-- Dynamic content will be inserted here -->
+            </div>
+        </section>
+    </main>
     <footer>
         <div class="footer-contact">
             <p><strong>Ishtar Station Chamber of Commerce</strong></p>
             <p>Venus, second planet from the Sun</p>
             <p>Central District</p>
-            <p>info@ishtarstation.com</p>
-            <p>(555) 123-4567</p>
+            <p><a href="mailto:info@ishtarstation.com">info@ishtarstation.com</a></p>
+            <p><a href="tel:(555) 123-4567">(555) 123-4567</a></p>
         </div>
         <div class="footer-social">
             <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><img src="images/facebook.svg" alt="Facebook Icon" class="icon"></a>

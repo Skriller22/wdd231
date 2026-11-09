@@ -1,0 +1,105 @@
+{
+	"events": [
+		{
+			"name": "Ishtar Station Business Exchange",
+			"date": "2026-04-04",
+			"time": "10:00-14:00",
+			"location": "Sector 3, Central Concourse, Ishtar Station, Venus",
+			"description": "Meet fellow chamber members, discover station services, and build partnerships across the aerostation.",
+			"organizer": "Ishtar Station Chamber of Commerce",
+			"host": "Aphrodite's Market Provisions",
+			"admission": "Free"
+		},
+		{
+			"name": "Closed-Loop Living: Air, Water, and Food",
+			"date": "2026-04-18",
+			"time": "13:00-15:00",
+			"location": "Sector 1, Life Support Deck, Ishtar Station, Venus",
+			"description": "A practical sustainability forum on hydroponics, reclamation systems, and resilient station life support.",
+			"organizer": "Ishtar Station Chamber of Commerce",
+			"hosts": [
+				"Cloudtop Hydroponics",
+				"Second Breath Air & Water Reclamation"
+			],
+			"admission": "Free with registration"
+		},
+		{
+			"name": "Dockside Safety and Salvage Workshop",
+			"date": "2026-05-02",
+			"time": "09:00-12:00",
+			"location": "Sector 9, Dockside Hangars, Ishtar Station, Venus",
+			"description": "Learn safe repair, recovery, and resale practices for station hardware and visiting cargo craft.",
+			"organizer": "Ishtar Station Chamber of Commerce",
+			"hosts": [
+				"Tether & Weld Hull Repair",
+				"Free Orbit Salvage & Resale"
+			],
+			"admission": "25 credits"
+		},
+		{
+			"name": "Cargo Corridor Networking Breakfast",
+			"date": "2026-05-16",
+			"time": "08:00-10:00",
+			"location": "Sector 9, Cargo Terminal B, Ishtar Station, Venus",
+			"description": "Connect shippers, couriers, manufacturers, and station operators to improve freight movement through Venusian airspace.",
+			"organizer": "Ishtar Station Chamber of Commerce",
+			"host": "Lightspeed Freight & Courier",
+			"admission": "15 credits"
+		},
+		{
+			"name": "Healthy Habitats Community Fair",
+			"date": "2026-06-06",
+			"time": "11:00-16:00",
+			"location": "Sector 5, Rotating Habitat Ring, Ishtar Station, Venus",
+			"description": "Explore fitness, radiation care, family education, and wellness resources for every resident.",
+			"organizer": "Ishtar Station Chamber of Commerce",
+			"hosts": [
+				"Gravity Well Fitness",
+				"Halcyon Medical & Radiation Clinic",
+				"Little Astronauts Academy"
+			],
+			"admission": "Free"
+		},
+		{
+			"name": "Small Business Finance Clinic",
+			"date": "2026-06-20",
+			"time": "14:00-17:00",
+			"location": "Sector 6, Financial Plaza, Ishtar Station, Venus",
+			"description": "Get guidance on station commerce, credit, contracts, insurance, and salvage regulations.",
+			"organizer": "Ishtar Station Chamber of Commerce",
+			"hosts": [
+				"Nova Bank & Credit Union",
+				"Perihelion Legal & Salvage Law"
+			],
+			"admission": "Free with registration"
+		},
+		{
+			"name": "The Future of Venusian Power and Communications",
+			"date": "2026-07-11",
+			"time": "10:00-13:00",
+			"location": "Sector 8, Reactor Annex, Ishtar Station, Venus",
+			"description": "A technical showcase covering resilient power distribution, emergency systems, and long-range station communications.",
+			"organizer": "Ishtar Station Chamber of Commerce",
+			"hosts": [
+				"Brightspark Electrical & Power Grid",
+				"Deep Signal Network & Comms"
+			],
+			"admission": "30 credits"
+		},
+		{
+			"name": "Aerospace Arts and Visitor Night",
+			"date": "2026-07-25",
+			"time": "18:00-22:00",
+			"location": "Sector 4, Entertainment District, Ishtar Station, Venus",
+			"description": "Enjoy local cinema, zero-G theater, artisan tailoring, dining, and hospitality while welcoming visiting crews.",
+			"organizer": "Ishtar Station Chamber of Commerce",
+			"hosts": [
+				"Starlit Cinema & Zero-G Theater",
+				"Orbital Threads Tailoring",
+				"Cinnabar Café & Bakery",
+				"Venusian Rose Hotel & Suites"
+			],
+			"admission": "20 credits"
+		}
+	]
+}

@@ -1,0 +1,25 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 300 200"
+  width="300"
+  height="200"
+  role="img"
+  aria-label="Placeholder image"
+>
+  <rect width="300" height="200" fill="#e5e7eb" />
+  <circle cx="95" cy="75" r="20" fill="#9ca3af" />
+  <path
+    d="M35 165l70-65 45 40 30-25 85 50H35z"
+    fill="#9ca3af"
+  />
+  <text
+    x="150"
+    y="190"
+    text-anchor="middle"
+    font-family="Arial, sans-serif"
+    font-size="16"
+    fill="#4b5563"
+  >
+    Placeholder Image
+  </text>
+</svg>

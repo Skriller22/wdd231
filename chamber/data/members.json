@@ -2,6 +2,7 @@
   "businesses": [
     {
       "name": "Cloudtop Hydroponics",
+      "level": "Silver",
       "image": "images/members/cloudtop-hydroponics.svg",
       "address": "Sector 2, Agricultural Ring, Ishtar Station, Venus",
       "phone": "(555) 201-4410",
@@ -9,6 +10,7 @@
     },
     {
       "name": "Second Breath Air & Water Reclamation",
+      "level": "Silver",
       "image": "images/members/second-breath-reclamation.svg",
       "address": "Sector 1, Life Support Deck, Ishtar Station, Venus",
       "phone": "(555) 201-1177",
@@ -16,6 +18,7 @@
     },
     {
       "name": "Aphrodite's Market Provisions",
+      "level": "Member",
       "image": "images/members/aphrodite-provisions-market.svg",
       "address": "Sector 3, Central Concourse, Ishtar Station, Venus",
       "phone": "(555) 330-5582",
@@ -23,6 +26,7 @@
     },
     {
       "name": "Tether & Weld Hull Repair",
+      "level": "Member",
       "image": "images/members/tether-and-weld.svg",
       "address": "Sector 9, Dockside Hangars, Ishtar Station, Venus",
       "phone": "(555) 909-3346",
@@ -30,6 +34,7 @@
     },
     {
       "name": "Lightspeed Freight & Courier",
+      "level": "Gold",
       "image": "images/members/lightspeed-freight.svg",
       "address": "Sector 9, Cargo Terminal B, Ishtar Station, Venus",
       "phone": "(555) 909-7720",
@@ -37,6 +42,7 @@
     },
     {
       "name": "Gravity Well Fitness",
+      "level": "Silver",
       "image": "images/members/gravity-well-fitness.svg",
       "address": "Sector 5, Rotating Habitat Ring, Ishtar Station, Venus",
       "phone": "(555) 510-6634",
@@ -44,6 +50,7 @@
     },
     {
       "name": "Halcyon Medical & Radiation Clinic",
+      "level": "Gold",
       "image": "images/members/halcyon-medical-clinic.svg",
       "address": "Sector 5, Wellness Block, Ishtar Station, Venus",
       "phone": "(555) 510-2008",
@@ -51,6 +58,7 @@
     },
     {
       "name": "Orbital Threads Tailoring",
+      "level": "Member",
       "image": "images/members/orbital-threads-tailoring.svg",
       "address": "Sector 3, Artisan Row, Ishtar Station, Venus",
       "phone": "(555) 330-8815",
@@ -58,6 +66,7 @@
     },
     {
       "name": "Nova Bank & Credit Union",
+      "level": "Gold",
       "image": "images/members/nova-bank.svg",
       "address": "Sector 6, Financial Plaza, Ishtar Station, Venus",
       "phone": "(555) 987-1200",
@@ -65,6 +74,7 @@
     },
     {
       "name": "Perihelion Legal & Salvage Law",
+      "level": "Silver",
       "image": "images/members/perihelion-legal.svg",
       "address": "Sector 6, Financial Plaza, Ishtar Station, Venus",
       "phone": "(555) 987-4466",
@@ -72,6 +82,7 @@
     },
     {
       "name": "Starlit Cinema & Zero-G Theater",
+      "level": "Gold",
       "image": "images/members/starlit-cinema.svg",
       "address": "Sector 4, Entertainment District, Ishtar Station, Venus",
       "phone": "(555) 340-7713",
@@ -79,6 +90,7 @@
     },
     {
       "name": "Venusian Rose Hotel & Suites",
+      "level": "Silver",
       "image": "images/members/venusian-rose-hotel.svg",
       "address": "Sector 7, Visitor Quarter, Ishtar Station, Venus",
       "phone": "(555) 770-3090",
@@ -86,6 +98,7 @@
     },
     {
       "name": "Brightspark Electrical & Power Grid",
+      "level": "Gold",
       "image": "images/members/brightspark-power.svg",
       "address": "Sector 8, Reactor Annex, Ishtar Station, Venus",
       "phone": "(555) 880-5521",
@@ -93,6 +106,7 @@
     },
     {
       "name": "Little Astronauts Academy",
+      "level": "Member",
       "image": "images/members/little-astronauts-academy.svg",
       "address": "Sector 5, Family Commons, Ishtar Station, Venus",
       "phone": "(555) 510-9942",
@@ -100,6 +114,7 @@
     },
     {
       "name": "Deep Signal Network & Comms",
+      "level": "Silver",
       "image": "images/members/deep-signal-network.svg",
       "address": "Sector 8, Antenna Spire, Ishtar Station, Venus",
       "phone": "(555) 880-1034",
@@ -107,6 +122,7 @@
     },
     {
       "name": "Free Orbit Salvage & Resale",
+      "level": "Member",
       "image": "images/members/free-orbit-salvage.svg",
       "address": "Sector 9, Scrap Exchange, Ishtar Station, Venus",
       "phone": "(555) 909-6158",
@@ -114,6 +130,7 @@
     },
     {
       "name": "Cinnabar Café & Bakery",
+      "level": "Member",
       "image": "images/members/cinnabar-cafe.svg",
       "address": "Sector 4, Promenade Level, Ishtar Station, Venus",
       "phone": "(555) 340-2279",
