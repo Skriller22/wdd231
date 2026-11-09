@@ -1,5 +1,4 @@
 // OpenWeather current weather for Irvine, California.
-// Paste your own key from https://home.openweathermap.org/api_keys
 const apiKey = 'e55c74d00fb4b91b12012e6d5894575a';
 const weatherUrl = 'https://api.openweathermap.org/data/2.5/weather'
     + '?lat=33.6846&lon=-117.8265&units=imperial'
