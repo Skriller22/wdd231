@@ -1,4 +1,6 @@
+/* Overrides for screens 768px and wider; base.css holds the mobile styles. */
 @media screen and (min-width: 768px) {
+    /* Header and navigation: menu is always open, links sit in a row */
     #hamburger-close {
         display: none;
     }
@@ -17,23 +19,28 @@
         border-top: none;
     }
 
-    /* Hero */
+    /* Hero: larger, more opaque welcome text so it stays readable over the image */
+    .home-hero-section p {
+        width: 70%;
+        max-width: 900px;
+        padding: 0.75rem 1.5rem;
+        background-color: rgba(0, 0, 0, 0.7);
+        font-size: clamp(1.1rem, 2vw, 1.6rem);
+        line-height: 1.5;
+    }
+
     .home-hero-section .hero-btn {
         position: absolute;
         top: 20%;
         bottom: auto;
         left: 80%;
         transform: translateX(-50%);
-        background-color: var(--page-text-color);
-        color: var(--background-color);
-        border: none;
-        border-radius: 4px;
-        padding: 0.5rem 1rem;
-        cursor: pointer;
         font-size: 1.5rem;
     }
 
-    /* Home content: events and weather side by side, spotlight across the bottom */
+    /* Home content: events and weather side by side, spotlight across the bottom.
+       The section's children are, in order: events h2, events, weather h2,
+       weather, spotlight h2, spotlight. Each is placed as row / column. */
     .home-content-section {
         display: grid;
         grid-template-columns: 3fr 2fr;
@@ -60,39 +67,26 @@
         grid-template-columns: repeat(3, 1fr);
     }
 
-    /* Directory list view */
-    .directory-cards.list-view {
-        gap: 1rem;
-    }
-
+    /* Directory list view: name, address, phone, and link share fixed columns
+       so they line up from row to row. The contact wrapper is dissolved so its
+       address and phone become columns of the card's grid. */
     .directory-cards.list-view .sample-card {
-        grid-template-columns: auto 1fr auto;
-        gap: 0.5rem 1rem;
-        padding: 1rem;
-    }
-
-    .directory-cards.list-view .sample-card > * {
-        grid-column: auto;
-    }
-
-    .directory-cards.list-view .sample-card img {
-        grid-row: auto;
-        width: 64px;
-        height: 64px;
+        grid-template-columns: 1.2fr 2fr 10rem 9rem;
+        align-items: center;
+        gap: 0 1.5rem;
+        padding: 0.5rem 1rem;
     }
 
     .directory-cards.list-view .sample-card h3 {
-        grid-column: 1 / -1;
-        padding-bottom: 0.5rem;
-        border-bottom: 1px solid currentColor;
-        font-size: 1.17em;
+        font-size: 1.1rem;
     }
 
     .directory-cards.list-view .card-contact-info {
-        margin: 0.5rem 0;
+        display: contents;
         font-size: 1rem;
     }
 
+    /* Footer: contact, social icons, and copyright in one row */
     footer {
         display: flex;
         flex-direction: row;

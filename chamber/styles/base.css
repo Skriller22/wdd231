@@ -1,3 +1,43 @@
+/* ==========================================================================
+   Ishtar Station Chamber of Commerce - base (mobile-first) styles
+   Wider-screen overrides live in larger.css.
+
+   Contents
+   1. Variables and resets
+   2. Header and navigation
+   3. Main
+   4. Home page
+      4a. Hero
+      4b. Shared card pieces
+      4c. Current events
+      4d. Weather
+      4e. Membership spotlight
+   5. Site plan
+   6. Directory
+   7. Footer
+
+   Theming
+   Dark is the default. Light mode is the class "light-mode" on <html>, set by
+   theme-init.js before first paint and toggled by theme.js. The :root.light-mode
+   block only redefines variable values; components never have light-mode rules.
+
+   Two layers of variables are defined in section 1:
+   - Raw palette (--primary-color, --secondary-color, ...): fixed colors.
+   - Theme variables, named for their job rather than their color:
+       --surface / --surface-deep   card and nav backgrounds / buttons and chips
+       --on-surface                 text on those surfaces
+       --accent-text                headings, links, and weather values
+       --edge                       glowing underlines, card top edge, heading underline (yellow in dark, blue in light)
+       --edge-line                  thin green borders
+       --chrome-bg / --chrome-text  header and footer
+
+   - Nav links and buttons: dark surface, uppercase wide-spaced text, and a 3px bottom border that lights up with a glow on hover or when selected.
+   - Panels (event, weather, spotlight, and directory cards): green border, highlighted top edge, soft glow, and --on-surface text.
+   ========================================================================== */
+
+
+/* 1. Variables and resets
+   ========================================================================== */
 :root {
     --primary-color: #1f1f41;
     --primary-color-light: #8989db;
@@ -12,6 +52,15 @@
     --text-color: #343434;
     --body-color: #1f1f41;
     --page-text-color: #F2F2F2;
+    /* Console theme: panels, buttons, and page chrome (swapped in light mode) */
+    --surface: #1f1f41;
+    --surface-deep: #000000;
+    --on-surface: #aacca6;
+    --accent-text: #ffe253;
+    --edge: #ffe253;
+    --edge-line: #8bbf8b;
+    --chrome-bg: #343434;
+    --chrome-text: #ffffff;
     --font-family: 'Lato', sans-serif;
     --mobile-breakpoint: 768px;
     --max-render-width: 2048px;
@@ -21,10 +70,26 @@
     --background-color: #F7FFF7;
     --body-color: #D9DEEC;
     --page-text-color: #343434;
+    --surface: #eaf5e8;
+    --surface-deep: #ffffff;
+    --on-surface: #1f1f41;
+    --accent-text: #1f1f41;
+    --edge: #2b59c3;
+    --edge-line: #8bbf8b;
+    --chrome-bg: #bfe2bc;
+    --chrome-text: #1f1f41;
 }
 
 * {
     box-sizing: border-box;
+}
+
+body {
+    max-width: var(--max-render-width);
+    margin: 0 auto;
+    background-color: var(--body-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
 }
 
 .icon {
@@ -32,26 +97,15 @@
     height: 48px;
 }
 
-body {
-    background-color: var(--body-color);
-    color: var(--text-color);
-    font-family: var(--font-family);
-    max-width: var(--max-render-width);
-    margin: 0 auto;
-}
 
-/* Header */
+/* 2. Header and navigation
+   ========================================================================== */
 header {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: var(--text-color);
-    color: white;
-}
-
-.logo-image {
-    width: 64px;
-    height: 64px;
+    background-color: var(--chrome-bg);
+    color: var(--chrome-text);
 }
 
 .header-title {
@@ -64,6 +118,11 @@ header {
 
 .header-title h2 {
     margin: 0;
+}
+
+.logo-image {
+    width: 64px;
+    height: 64px;
 }
 
 .header-btn {
@@ -79,6 +138,7 @@ header {
     height: 24px;
 }
 
+/* The menu is collapsed on mobile; navigation.js toggles .open */
 #site-nav {
     display: none;
 }
@@ -99,97 +159,108 @@ nav ul {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
     margin: 0;
     padding: 0;
-    width: 100%;
     border-bottom: solid black 1px;
 }
 
 nav ul li {
-    text-align: center;
-    list-style: none;
     width: 100%;
-    border-top: solid black 1px;
+    border-top: 1px solid var(--primary-color-dark);
+    list-style: none;
+    text-align: center;
 }
 
+/* Dark console-style links: mint text, glowing yellow edge on hover/current */
 nav ul li a {
     display: block;
-    background-color: var(--tertiary-color);
-    color: var(--primary-color);
+    padding: 0.75rem 0.5rem;
+    border-bottom: 3px solid transparent;
+    background-color: var(--surface);
+    color: var(--on-surface);
+    font-size: 1rem;
+    letter-spacing: 0.15em;
     text-decoration: none;
-    font-size: larger;
-    padding: 0.5rem;
-}
-
-nav ul li a:hover,
-.home-hero-section .hero-btn:hover,
-.event-link a:hover,
-.spotlight-link a:hover {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
+    text-transform: uppercase;
+    transition: color 0.2s, background-color 0.2s, box-shadow 0.2s;
 }
 
 nav ul li a[aria-current="page"] {
     font-weight: bold;
-    background-color: var(--tertiary-color-light);
 }
 
-/* Main */
+/* Console look shared across the site: the nav links above, plus every button
+   and card below. Buttons use the nav's dark/mint look, with a glowing yellow
+   edge on hover; panels get a dark surface with a yellow top edge. */
+.hero-btn,
+.spotlight-link a,
+.directory-view-toggle button {
+    border: 1px solid var(--edge-line);
+    border-bottom: 3px solid var(--edge-line);
+    background-color: var(--surface-deep);
+    color: var(--on-surface);
+    cursor: pointer;
+    letter-spacing: 0.15em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+
+nav ul li a:hover,
+nav ul li a[aria-current="page"],
+.hero-btn:hover,
+.spotlight-link a:hover,
+.directory-view-toggle button:hover,
+.directory-view-toggle button[aria-pressed="true"] {
+    border-bottom-color: var(--edge);
+    background-color: var(--surface-deep);
+    color: var(--accent-text);
+    box-shadow: inset 0 -10px 14px -10px var(--edge);
+}
+
+.event-card,
+.bio-dome-weather,
+.spotlight-card,
+.sample-card {
+    border: 1px solid var(--edge-line);
+    border-top: 3px solid var(--edge);
+    border-radius: 8px;
+    background-color: var(--surface);
+    box-shadow: 0 0 14px -6px var(--edge);
+    color: var(--on-surface);
+}
+
+.event-card h3,
+.bio-dome-weather h3,
+.spotlight-card h3,
+.sample-card h3 {
+    color: var(--accent-text);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.event-link a,
+.sample-card a {
+    color: var(--accent-text);
+}
+
+
+/* 3. Main
+   ========================================================================== */
 main {
+    padding: 1rem;
     background-color: var(--background-color);
     color: var(--page-text-color);
-    padding: 1rem;
 }
 
-/* Home Page */
+
+/* 4. Home page
+   ========================================================================== */
 .home-main {
+    display: flex;
+    flex-direction: column;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-.home-hero-section {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border-bottom: 1px solid white;
-}
-
-.home-hero-section h1 {
-    font-size: 2rem;
-    margin: 1rem;
-}
-
-.home-hero-section img {
-    width: 100%;
-    height: auto;
-}
-
-.home-hero-section p {
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
-    width: 80%;
-    transform: translateX(-50%);
-    font-size: 0.8rem;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-}
-
-.home-hero-section .hero-btn {
-    position: absolute;
-    top: 33%;
-    left: 70%;
-    transform: translateX(-50%);
-    background-color: var(--page-text-color);
-    color: var(--background-color);
-    border-radius: 4px;
-    padding: 0.5rem 1rem;
-    font-size: 1.125rem;
-    text-decoration: none;
 }
 
 .home-content-section {
@@ -205,24 +276,68 @@ main {
 }
 
 .home-content-section h2 {
-    text-align: center;
     margin: 1rem 0;
-    padding-top: 0.5rem;
-    border-top: 1px solid var(--page-text-color);
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--edge);
+    letter-spacing: 0.15em;
+    text-align: center;
+    text-transform: uppercase;
 }
 
-/* Shared card, heading, and detail-row styles */
-.event-card,
-.bio-dome-weather,
-.spotlight-card {
-    border-radius: 8px;
+
+/* 4a. Hero
+   -------------------------------------------------------------------------- */
+.home-hero-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--edge-line);
+    text-align: center;
 }
 
-.event-card h3,
+.home-hero-section h1 {
+    margin: 1rem;
+    font-size: 1.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.home-hero-section img {
+    width: 100%;
+    height: auto;
+}
+
+/* Welcome text overlaid on the bottom of the image */
+.home-hero-section p {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    width: 80%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 0.8rem;
+}
+
+/* Call-to-action link overlaid on the image (hover style is in section 2) */
+.home-hero-section .hero-btn {
+    position: absolute;
+    top: 33%;
+    left: 70%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 1.125rem;
+}
+
+
+/* 4b. Shared card pieces
+   Used by the event, weather, and spotlight cards below.
+   -------------------------------------------------------------------------- */
 .bio-dome-weather h3,
 .spotlight-card h3,
-.event-description,
-.event-link,
 .weather-report,
 .weather-reading,
 .spotlight-detail,
@@ -230,7 +345,7 @@ main {
     text-align: center;
 }
 
-.event-details,
+/* Stacked lists of label/value rows */
 .spotlight-details,
 .weather-readings,
 .weather-forecast {
@@ -245,101 +360,117 @@ main {
     margin: 0;
 }
 
+/* Dark "chip" behind a weather or spotlight row */
 .weather-reading,
 .spotlight-detail,
 .weather-forecast li {
-    background-color: var(--tertiary-color);
     border-radius: 6px;
+    background-color: var(--surface-deep);
+    border: 1px solid var(--edge-line);
 }
 
-.event-detail dt,
+/* Small uppercase labels */
 .weather-reading dt,
 .spotlight-detail dt {
     font-size: 0.75rem;
-    text-transform: uppercase;
     letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 
-.event-detail dd,
 .spotlight-detail dd {
     margin: 0.15rem 0 0;
     font-weight: 700;
 }
 
-.event-link a,
+/* Full-width link button at the bottom of a card (look is in section 2) */
 .spotlight-link a {
     display: block;
     padding: 0.75rem 0;
-    background-color: var(--primary-color);
-    color: white;
-    text-decoration: none;
 }
 
-.spotlight-link a {
-    border-radius: 6px;
-}
 
-/* Current events */
+/* 4c. Current events
+   -------------------------------------------------------------------------- */
 .current-events {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 0.75rem;
     margin-bottom: 2rem;
 }
 
+/* Compact card: left-aligned text, label/value pairs on shared rows */
 .event-card {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    background-color: var(--primary-color-light);
-    color: var(--primary-color-dark);
-    max-width: 400px;
+    gap: 0.5rem;
     width: 100%;
-    border: 1px solid var(--page-text-color);
-    border-top: 6px solid var(--secondary-color);
-    overflow: hidden;
-}
-
-.event-card > * {
-    margin: 0.5rem 1rem;
+    max-width: 400px;
+    padding: 0.75rem 1rem;
 }
 
 .event-card h3 {
-    font-size: 1.25rem;
+    margin: 0;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--primary-color);
+    border-bottom: 1px solid var(--edge-line);
+    font-size: 1.15rem;
 }
 
+.event-details {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.15rem 0.75rem;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Let each dt/dd pair sit directly in the two-column grid */
 .event-detail {
-    padding: 0.5rem 0.75rem;
-    background-color: var(--primary-color-dark);
-    color: #F2F2F2;
-    border-left: 4px solid var(--secondary-color);
-    border-radius: 6px;
+    display: contents;
 }
 
 .event-detail dt {
-    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+.event-detail dd {
+    margin: 0;
+}
+
+.event-description {
+    margin: 0;
+    font-size: 0.9rem;
 }
 
 .event-link {
-    margin: 0.5rem 0 0;
+    margin: 0;
+    text-align: right;
 }
 
-/* Weather */
+.event-link a {
+    font-weight: 700;
+}
+
+
+/* 4d. Weather
+   -------------------------------------------------------------------------- */
 .bio-dome-weather {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: var(--tertiary-color-light);
-    color: var(--primary-color);
-    border-top: 6px solid var(--tertiary-color-dark);
-    max-width: 400px;
     width: 100%;
+    max-width: 400px;
     padding: 1rem;
+}
+
+.bio-dome-weather h3 {
+    width: 100%;
+    margin: 1rem 0 0.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--edge-line);
+    font-size: 1.1rem;
 }
 
 .weather-readings {
@@ -352,17 +483,10 @@ main {
 
 .weather-reading dd {
     margin: 0.25rem 0 0;
+    color: var(--accent-text);
     font-size: 1.5rem;
     font-weight: 700;
     font-variant-numeric: tabular-nums;
-}
-
-.bio-dome-weather h3 {
-    width: 100%;
-    margin: 1rem 0 0.5rem;
-    padding-top: 0.75rem;
-    font-size: 1.1rem;
-    border-top: 1px solid var(--primary-color);
 }
 
 .weather-report {
@@ -381,11 +505,14 @@ main {
 }
 
 .forecast-temp {
+    color: var(--accent-text);
     font-weight: 700;
     font-variant-numeric: tabular-nums;
 }
 
-/* Membership spotlight */
+
+/* 4e. Membership spotlight
+   -------------------------------------------------------------------------- */
 .membership-spotlight {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -399,28 +526,43 @@ main {
     align-items: center;
     gap: 0.75rem;
     padding: 1rem;
-    background-color: var(--tertiary-color-light);
-    color: var(--primary-color);
-    border-top: 6px solid var(--primary-color-light);
 }
 
 .spotlight-card h3 {
     width: 100%;
     margin: 0;
     padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--edge-line);
     font-size: 1.25rem;
-    border-bottom: 1px solid var(--primary-color);
 }
 
+.spotlight-card img {
+    max-width: 150px;
+}
+
+.spotlight-detail {
+    padding: 0.5rem;
+}
+
+.spotlight-link {
+    width: 100%;
+    margin: auto 0 0;
+}
+
+.spotlight-link a {
+    border-radius: 6px;
+}
+
+/* Membership level badge; colors are added by level */
 .member-level {
     padding: 0.25rem 0.75rem;
+    border: 1px solid var(--primary-color-dark);
     border-radius: 999px;
+    color: var(--primary-color-dark);
     font-size: 0.75rem;
     font-weight: 700;
-    text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--primary-color-dark);
-    border: 1px solid var(--primary-color-dark);
+    text-transform: uppercase;
 }
 
 .level-gold {
@@ -435,38 +577,17 @@ main {
     background-color: var(--tertiary-color);
 }
 
-.spotlight-card img,
-.sample-card img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1;
-    border-radius: 8px;
-}
 
-.spotlight-card img {
-    max-width: 150px;
-}
-
-.sample-card img {
-    max-width: 220px;
-}
-
-.spotlight-detail {
-    padding: 0.5rem;
-}
-
-.spotlight-link {
-    width: 100%;
-    margin: auto 0 0;
-}
-
-/* Site Plan */
+/* 5. Site plan
+   ========================================================================== */
 .siteplan-main img {
     width: 100%;
     height: auto;
 }
 
-/* Directory */
+
+/* 6. Directory
+   ========================================================================== */
 .directory-view-toggle {
     display: flex;
     justify-content: center;
@@ -478,44 +599,78 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--tertiary-color);
-    color: var(--primary-color);
-    border: none;
-    border-radius: 4px;
     padding: 0.5rem 1rem;
-    cursor: pointer;
+    border-radius: 4px;
 }
 
 .directory-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-auto-rows: 1fr; /* every row matches the tallest card */
+    gap: 0.75rem;
 }
 
-.directory-cards.list-view {
+.sample-card {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.4rem;
+    padding: 0.75rem;
+}
+
+.sample-card h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    text-align: center;
+}
+
+.card-contact-info {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.card-contact-info p {
+    margin: 0.1rem 0;
+}
+
+/* Logo images: shared by the directory and spotlight cards */
+.spotlight-card img,
+.sample-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    border-radius: 8px;
+}
+
+.sample-card img {
+    max-width: 110px;
+}
+
+/* Grid view */
+.directory-cards.grid-view .card-contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 200px;
+    text-align: center;
+}
+
+/* List view: compact text-only rows (logos are hidden) */
+.directory-cards.list-view {
+    grid-template-columns: 1fr;
     gap: 0.5rem;
 }
 
-/* Compact list cards for small screens: logo beside the text */
 .directory-cards.list-view .sample-card {
     display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center;
-    gap: 0 0.75rem;
-    padding: 0.5rem;
-}
-
-.directory-cards.list-view .sample-card > * {
-    grid-column: 2;
+    align-content: center;
+    gap: 0.15rem;
+    padding: 0.5rem 0.75rem;
 }
 
 .directory-cards.list-view .sample-card img {
-    grid-column: 1;
-    grid-row: 1 / span 3;
-    width: 56px;
-    height: 56px;
+    display: none;
 }
 
 .directory-cards.list-view .sample-card h3 {
@@ -528,38 +683,18 @@ main {
     font-size: 0.875rem;
 }
 
-.sample-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    background-color: var(--tertiary-color);
-    color: var(--primary-color);
-    padding: 1rem;
-    border-radius: 8px;
+.directory-cards.list-view .card-contact-info p {
+    margin: 0;
 }
 
-.directory-cards.grid-view .card-contact-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 220px;
-    text-align: center;
-}
 
-.card-contact-info {
-    margin: 0.5rem 0;
-}
-
-.card-contact-info p {
-    margin: 0.2rem 0;
-}
-
-/* Footer */
+/* 7. Footer
+   ========================================================================== */
 footer {
-    background-color: var(--text-color);
-    color: white;
     padding: 0.5rem 0;
+    border-top: 3px solid var(--edge);
+    background-color: var(--chrome-bg);
+    color: var(--chrome-text);
 }
 
 footer p {
@@ -567,38 +702,36 @@ footer p {
     text-align: left;
 }
 
-.footer-contact, .footer-copyright {
+.footer-contact,
+.footer-copyright {
     margin: 1em 8px;
 }
 
 .footer-contact a {
-    color: var(--secondary-color);
-    text-decoration: none;
-}
-
-.footer-contact a:hover {
+    color: var(--accent-text);
     text-decoration: underline;
 }
 
 .footer-social {
-    background-color: var(--tertiary-color);
     display: flex;
     justify-content: space-around;
     align-items: center;
     max-width: var(--mobile-breakpoint);
     margin: 0 auto;
     padding: 0.8rem 0;
+    background-color: var(--surface);
 }
 
 .footer-social a {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--background-color);
-    border-radius: 50%;
-    padding: 0.5rem;
     width: 64px;
     height: 64px;
+    padding: 0.5rem;
+    border: 1px solid var(--edge-line);
+    border-radius: 50%;
+    background-color: var(--background-color);
 }
 
 /* The icons are black; invert them to white on the dark background */

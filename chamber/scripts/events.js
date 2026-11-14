@@ -1,6 +1,6 @@
 const eventsUrl = 'data/events.json';
 const eventsContainer = document.querySelector('.current-events');
-const MAX_EVENTS = 3;
+const MAX_EVENTS = 2;
 
 function createDetail(label, value) {
     const detail = document.createElement('div');
@@ -66,12 +66,23 @@ function displayEvents(events) {
     });
 }
 
+// Local date as YYYY-MM-DD, so events stay "current" through the end of their day
+function getToday() {
+    const now = new Date();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    return `${now.getFullYear()}-${month}-${day}`;
+}
+
+// Shows the next upcoming events; if fewer than MAX_EVENTS remain, the
+// most recent past events fill the gap. Results are in date order.
 function chooseEvents(events) {
-    const today = new Date().toISOString().slice(0, 10);
+    const today = getToday();
     const sorted = [...events].sort((a, b) => a.date.localeCompare(b.date));
-    const upcoming = sorted.filter((event) => event.date >= today);
-    // Fall back to the first events listed when nothing is upcoming
-    return (upcoming.length ? upcoming : sorted).slice(0, MAX_EVENTS);
+    const upcoming = sorted.filter((event) => event.date >= today).slice(0, MAX_EVENTS);
+    const past = sorted.filter((event) => event.date < today);
+    const recent = past.slice(Math.max(past.length - (MAX_EVENTS - upcoming.length), 0));
+    return [...recent, ...upcoming];
 }
 
 async function getEvents() {

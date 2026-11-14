@@ -13,6 +13,7 @@
     <meta property="og:url" content="https://skriller22.github.io/wdd231/chamber">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="scripts/theme-init.js"></script>
     <link rel="stylesheet" href="styles/normalize.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link href="styles/base.css" rel="stylesheet">
@@ -92,15 +93,42 @@
             <li>Regularly update the website with fresh content, such as blog posts and event announcements.</li>
         </ul>
         <h2>Design Brief</h2>
-        <p><strong>Primary Color:</strong> #2F3061</p>
-        <p><strong>Secondary Color:</strong> #FFE253</p>
-        <p><strong>Tertiary Color:</strong> #8D9FB0</p>
-        <p><strong>Background Color:</strong> #F7FFF7</p>
+        <p>The site uses a dark "console" theme by default, inspired by the control panels of a space station, with a lighter theme the visitor can switch to at any time. The choice is saved in the browser and applied before the page paints, so there is no flash when changing pages.</p>
+        <h3>Dark Theme (Default)</h3>
+        <p><strong>Primary Color:</strong> #1F1F41 (page background and card surfaces)</p>
+        <p><strong>Secondary Color:</strong> #FFE253 (highlights, glow, and accent text)</p>
+        <p><strong>Tertiary Color:</strong> #AACCA6 (text on panels, borders, and buttons)</p>
+        <p><strong>Background Color:</strong> #000000</p>
+        <p><strong>Header and Footer:</strong> #343434 with white text</p>
+        <h3>Light Theme</h3>
+        <p><strong>Background Color:</strong> #F7FFF7 (page #D9DEEC)</p>
+        <p><strong>Card Surface:</strong> #EAF5E8 with #1F1F41 text</p>
+        <p><strong>Header and Footer:</strong> #BFE2BC with #1F1F41 text</p>
+        <p><strong>Highlight Color:</strong> #2B59C3 (replaces yellow for underlines, glow, and edges)</p>
         <p><strong>Text Color:</strong> #343434</p>
+        <h3>Type and Style</h3>
         <p><strong>Font:</strong> Lato, sans-serif</p>
+        <p><strong>Navigation and Buttons:</strong> Dark panels with uppercase, widely spaced text. Hovering or selecting an item lights its bottom edge with a glowing highlight.</p>
+        <p><strong>Cards:</strong> Event, weather, spotlight, and directory cards share one panel style: a thin green border, a highlighted top edge, and a soft glow.</p>
+        <h2>Page Features</h2>
+        <h3>Home</h3>
+        <ul>
+            <li>Hero image with a "Join the Chamber" call to action link and welcome text.</li>
+            <li>Current events: the next two upcoming events, loaded from a JSON file.</li>
+            <li>Bio-Dome Weather: current temperature, humidity, wind, and a three-day forecast from the OpenWeatherMap API.</li>
+            <li>Membership spotlight: three Gold or Silver members chosen at random on each visit.</li>
+            <li>On larger screens, events and weather sit side by side with the spotlight across the bottom.</li>
+        </ul>
+        <h3>Directory</h3>
+        <ul>
+            <li>Members are loaded from a JSON file and sorted by station sector.</li>
+            <li>Grid view shows compact cards with logos. List view is a text-only table-like layout where the name, address, phone, and website columns line up.</li>
+            <li>All cards in either view share the same height.</li>
+        </ul>
         <h2>Site Map</h2>
         <img src="images/chamber-site-map.png" alt="Site map for the Ishtar Station Chamber of Commerce website.">
         <h2>Wireframes</h2>
+        <p>These are the original planning wireframes. The final design has evolved from them, notably the dark and light themes and the card layouts described above.</p>
         <h3>Desktop</h3>
         <img src="images/chamber-home-desktop-wireframe.webp" alt="Desktop wireframe for the Ishtar Station Chamber of Commerce website.">
         <h3>Mobile</h3>
