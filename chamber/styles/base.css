@@ -17,9 +17,8 @@
    7. Footer
 
    Theming
-   Dark is the default. Light mode is the class "light-mode" on <html>, set by
-   theme-init.js before first paint and toggled by theme.js. The :root.light-mode
-   block only redefines variable values; components never have light-mode rules.
+   Dark is the default. Light mode is the class "light-mode" on <html>, set and
+   toggled by theme.js. The :root.light-mode block only redefines variable values; components never have light-mode rules.
 
    Two layers of variables are defined in section 1:
    - Raw palette (--primary-color, --secondary-color, ...): fixed colors.
