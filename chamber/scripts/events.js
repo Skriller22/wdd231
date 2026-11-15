@@ -58,7 +58,7 @@ function displayEvents(events) {
         linkWrapper.classList.add('event-link');
         const link = document.createElement('a');
         link.href = 'discover.html';
-        link.textContent = 'More Info';
+        link.textContent = 'Discover More';
         linkWrapper.appendChild(link);
 
         card.append(name, details, description, linkWrapper);
