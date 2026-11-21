@@ -92,6 +92,30 @@
         gap: 2rem;
     }
 
+    /* Match heights: both columns stretch to the taller one. The cards share the
+       extra height equally, and the description box grows to absorb any slack. */
+    .join-form-wrapper {
+        align-items: stretch;
+    }
+
+    .membership-levels {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .membership-level-card {
+        flex: 1;
+        justify-content: center;
+    }
+
+    .join-form {
+        grid-template-rows: repeat(3, auto) auto 1fr auto;
+    }
+
+    .join-form label:has(textarea) textarea {
+        flex: 1;
+    }
+
     /* Short fields pair up two across; the level, description, and submit span both */
     .join-form {
         grid-template-columns: 1fr 1fr;

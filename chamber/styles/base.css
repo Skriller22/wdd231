@@ -195,7 +195,8 @@ nav ul li a[aria-current="page"] {
 .hero-btn,
 .spotlight-link a,
 .directory-view-toggle button,
-.join-form .submit-btn {
+.join-form .submit-btn,
+.home-btn {
     border: 1px solid var(--edge-line);
     border-bottom: 3px solid var(--edge-line);
     background-color: var(--surface-deep);
@@ -213,7 +214,9 @@ nav ul li a[aria-current="page"],
 .spotlight-link a:hover,
 .directory-view-toggle button:hover,
 .directory-view-toggle button[aria-pressed="true"],
-.join-form .submit-btn:hover {
+.join-form .submit-btn:hover,
+.home-btn:hover,
+.home-btn:focus-visible {
     border-bottom-color: var(--edge);
     background-color: var(--surface-deep);
     color: var(--accent-text);
@@ -691,6 +694,37 @@ main {
     gap: 1rem;
 }
 
+/* Intro: heading with an edge underline, then two short paragraphs. Margins are
+   zeroed so the grid gap is the only spacing; the gap is tightened between the
+   intro pieces and restored before the form. */
+.join-section > h1,
+.join-section > p {
+    margin: 0;
+}
+
+.join-section > h1 {
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--edge);
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    line-height: 1.2;
+}
+
+.join-section > p {
+    max-width: 65ch;
+    line-height: 1.5;
+}
+
+.join-section > h1 + p {
+    margin-top: -0.25rem;
+    font-size: 1.1rem;
+}
+
+.join-section > p:nth-of-type(2) {
+    margin-top: -0.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--on-surface);
+}
+
 .join-form-wrapper {
     display: grid;
     grid-template-columns: 1fr;
@@ -708,6 +742,7 @@ main {
 .join-form label {
     display: flex;
     flex-direction: column;
+    justify-content: space-between; /* label text on top, field on the bottom, so fields line up when a label wraps */
     gap: 0.25rem;
     color: var(--on-surface);
     font-size: 0.875rem;
@@ -750,7 +785,7 @@ main {
 }
 
 .join-form .submit-btn {
-    padding: 0.6rem 1rem;
+    padding: 1rem 1rem;
     font: inherit;
     font-weight: bold;
     letter-spacing: 0.15em;
@@ -892,6 +927,18 @@ main {
     gap: 1rem;
     max-width: 40rem;
     margin: 0 auto;
+}
+
+.home-btn {
+    justify-self: start;
+    padding: 0.6rem 1.5rem;
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+.thankyou-section > h1,
+.thankyou-section > p {
+    margin: 0;
 }
 
 .thankyou-card {
