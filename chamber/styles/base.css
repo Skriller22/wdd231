@@ -715,11 +715,6 @@ main {
     text-transform: uppercase;
 }
 
-/* The hidden timestamp field's label has nothing to show */
-.join-form label:has(input[type="hidden"]) {
-    display: none;
-}
-
 /* Squarer corners for the form, level buttons, and modal */
 .join-form,
 .membership-level-card,
