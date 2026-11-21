@@ -19,6 +19,8 @@
     <link href="styles/larger.css" rel="stylesheet">
     <script src="scripts/navigation.js" defer></script>
     <script src="scripts/theme.js" defer></script>
+    <script src="scripts/date.js" defer></script>
+    <script src="scripts/join.js" defer></script>
 </head>
 <body>
     <header>
@@ -42,6 +44,77 @@
             </ul>
         </nav>
     </header>
+    <main>
+        <section class="join-section">
+            <h1>Join the Ishtar Station Chamber of Commerce</h1>
+            <p>Welcome to the Ishtar Station Chamber of Commerce! We are excited to have you join our community of local businesses.</p>
+    
+            <p>To become a member, please fill out the form below with your business information. Once submitted, our team will review your application and get back to you within 5-7 business days.</p>
+    
+            <div class="join-form-wrapper">
+                <form method="get" action="thankyou.html" class="join-form">
+                    <label for="first-name">First Name
+                        <input type="text" id="first-name" name="first-name" title="Applicant's first name" autocomplete="given-name" required>
+                    </label>
+                    <label for="last-name">Last Name
+                        <input type="text" id="last-name" name="last-name" title="Applicant's last name" autocomplete="family-name" required>
+                    </label>
+                    <label for="organization-title">Organizational Title
+                        <input type="text" id="organization-title" name="organization-title" title="Applicant's organizational title" autocomplete="organization-title" pattern="^[A-Za-z -]{7,}$">
+                    </label>
+                    <label for="email">Email Address
+                        <input type="email" id="email" name="email" title="Applicant's email address" autocomplete="email" placeholder="example@email.com" required>
+                    </label>
+                    <label for="phone">Mobile Phone Number
+                        <input type="tel" id="phone" name="phone" title="Applicant's mobile phone number" autocomplete="tel" required>
+                    </label>
+                    <label for="organization">Business/Organization Name
+                        <input type="text" id="organization" name="organization" title="Business or organization name" autocomplete="organization" required>
+                    </label>
+                    <label for="membership-level">Membership Level
+                        <select id="membership-level" name="membership-level" title="Select a membership level" required>
+                            <option value="" selected disabled>Select a membership level</option>
+                            <option value="np">NP Membership (no fee)</option>
+                            <option value="bronze">Bronze Membership</option>
+                            <option value="silver">Silver Membership</option>
+                            <option value="gold">Gold Membership</option>
+                        </select>
+                    </label>
+                    <label for="description">Business/Organization Description
+                        <textarea id="description" name="description" title="Business or organization description"></textarea>
+                    </label>
+                    <label for="timestamp">
+                        <input type="hidden" id="timestamp" name="timestamp">
+                    </label>
+                    <button type="submit" class="submit-btn">Join the Chamber</button>
+                </form>
+            <div class="membership-levels">
+                <h2>Membership Levels</h2>
+                <button type="button" class="membership-level-card" data-level="np">
+                    <span class="level-name">NP Membership</span>
+                    <span class="level-desc">No fee for non-profit organizations. Enjoy access to networking events, business resources, and promotional opportunities.</span>
+                </button>
+                <button type="button" class="membership-level-card" data-level="bronze">
+                    <span class="level-name">Bronze Membership</span>
+                    <span class="level-desc">For a small fee, gain access to exclusive networking events, business resources, and promotional opportunities.</span>
+                </button>
+                <button type="button" class="membership-level-card" data-level="silver">
+                    <span class="level-name">Silver Membership</span>
+                    <span class="level-desc">For a moderate fee, enjoy enhanced access to networking events, business resources, and promotional opportunities.</span>
+                </button>
+                <button type="button" class="membership-level-card" data-level="gold">
+                    <span class="level-name">Gold Membership</span>
+                    <span class="level-desc">For a premium fee, receive the highest level of access to networking events, business resources, and promotional opportunities.</span>
+                </button>
+                <dialog id="membership-modal" aria-labelledby="membership-modal-title">
+                    <button type="button" class="close-button" aria-label="Close">&times;</button>
+                    <h2 class="modal-title" id="membership-modal-title"></h2>
+                    <div class="modal-body"></div>
+                </dialog>
+            </div>
+            </div>
+        </section>
+    </main>
     <footer>
         <div class="footer-contact">
             <p><strong>Ishtar Station Chamber of Commerce</strong></p>

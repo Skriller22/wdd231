@@ -1,0 +1,54 @@
+{
+    "levels": [
+        {
+            "id": "np",
+            "name": "NP Membership",
+            "price": "No fee",
+            "audience": "Registered non-profit organizations",
+            "benefits": [
+                "Access to monthly networking events",
+                "Listing in the online member directory",
+                "Access to the business resource library",
+                "Promotion in the chamber newsletter"
+            ]
+        },
+        {
+            "id": "bronze",
+            "name": "Bronze Membership",
+            "price": "150 credits per year",
+            "audience": "Small businesses and startups",
+            "benefits": [
+                "Everything in NP Membership",
+                "Discounted tickets to chamber events",
+                "Member logo displayed in the directory",
+                "One event listing per year"
+            ]
+        },
+        {
+            "id": "silver",
+            "name": "Silver Membership",
+            "price": "300 credits per year",
+            "audience": "Established local businesses",
+            "benefits": [
+                "Everything in Bronze Membership",
+                "Priority booking for event booths",
+                "Featured placement in the member directory",
+                "Four event listings per year",
+                "Eligible for the home page spotlight"
+            ]
+        },
+        {
+            "id": "gold",
+            "name": "Gold Membership",
+            "price": "500 credits per year",
+            "audience": "Businesses seeking maximum visibility",
+            "benefits": [
+                "Everything in Silver Membership",
+                "Guaranteed home page spotlight rotation",
+                "Free booth at the annual trade fair",
+                "Unlimited event listings",
+                "Sponsor recognition at all chamber events"
+            ]
+        }
+    ]
+}

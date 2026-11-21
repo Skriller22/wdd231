@@ -194,7 +194,8 @@ nav ul li a[aria-current="page"] {
    edge on hover; panels get a dark surface with a yellow top edge. */
 .hero-btn,
 .spotlight-link a,
-.directory-view-toggle button {
+.directory-view-toggle button,
+.join-form .submit-btn {
     border: 1px solid var(--edge-line);
     border-bottom: 3px solid var(--edge-line);
     background-color: var(--surface-deep);
@@ -211,7 +212,8 @@ nav ul li a[aria-current="page"],
 .hero-btn:hover,
 .spotlight-link a:hover,
 .directory-view-toggle button:hover,
-.directory-view-toggle button[aria-pressed="true"] {
+.directory-view-toggle button[aria-pressed="true"],
+.join-form .submit-btn:hover {
     border-bottom-color: var(--edge);
     background-color: var(--surface-deep);
     color: var(--accent-text);
@@ -221,7 +223,9 @@ nav ul li a[aria-current="page"],
 .event-card,
 .bio-dome-weather,
 .spotlight-card,
-.sample-card {
+.sample-card,
+.join-form,
+.membership-level-card {
     border: 1px solid var(--edge-line);
     border-top: 3px solid var(--edge);
     border-radius: 8px;
@@ -679,8 +683,256 @@ main {
     margin: 0;
 }
 
+/* 7. Join
+   ========================================================================== */
+.join-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
 
-/* 7. Footer
+.join-form-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    align-items: start;
+}
+
+.join-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 0.75rem;
+}
+
+.join-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    color: var(--on-surface);
+    font-size: 0.875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* The hidden timestamp field's label has nothing to show */
+.join-form label:has(input[type="hidden"]) {
+    display: none;
+}
+
+/* Squarer corners for the form, level buttons, and modal */
+.join-form,
+.membership-level-card,
+.join-form .submit-btn,
+#membership-modal {
+    border-radius: 2px;
+}
+
+.join-form input:not([type="hidden"]),
+.join-form select,
+.join-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--edge-line);
+    border-radius: 4px;
+    background-color: var(--surface-deep);
+    color: var(--on-surface);
+    font: inherit;
+    letter-spacing: normal;
+    text-transform: none;
+}
+
+.join-form textarea {
+    min-height: 6rem;
+    resize: vertical;
+}
+
+.join-form input:focus-visible,
+.join-form select:focus-visible,
+.join-form textarea:focus-visible {
+    outline: 2px solid var(--edge);
+    outline-offset: 1px;
+}
+
+.join-form .submit-btn {
+    padding: 0.6rem 1rem;
+    font: inherit;
+    font-weight: bold;
+    letter-spacing: 0.15em;
+}
+
+/* Membership level cards: same panel look as the form, stacked beside it */
+.membership-levels {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.membership-levels h2 {
+    margin: 0;
+}
+
+/* Each card is a real <button>: the whole panel is clickable and opens the modal */
+.membership-level-card {
+    animation: roll-up 0.6s ease-out backwards;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    width: 100%;
+    padding: 0.75rem;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.membership-level-card:hover,
+.membership-level-card:focus-visible {
+    border-top-color: var(--edge);
+    box-shadow: 0 0 18px -2px var(--edge);
+    transform: translateY(-2px);
+}
+
+/* Cards roll up from below on page load, one after another */
+.membership-level-card:nth-of-type(2) { animation-delay: 0.15s; }
+.membership-level-card:nth-of-type(3) { animation-delay: 0.3s; }
+.membership-level-card:nth-of-type(4) { animation-delay: 0.45s; }
+
+@keyframes roll-up {
+    from {
+        opacity: 0;
+        transform: translateY(2.5rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .membership-level-card {
+        animation: none;
+    }
+}
+
+.level-name {
+    color: var(--accent-text);
+    font-size: 1.05rem;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* Membership modal: same panel look as the cards. Sized to its content, capped
+   to the dynamic viewport height so it scrolls instead of overflowing on short screens. */
+#membership-modal {
+    width: min(92vw, 36rem);
+    max-height: min(90dvh, 32rem);
+    padding: 0.75rem 1rem 1rem;
+    overflow-y: auto;
+    border: 1px solid var(--edge-line);
+    border-top: 3px solid var(--edge);
+    border-radius: 2px;
+    background-color: var(--surface);
+    box-shadow: 0 0 24px -4px var(--edge);
+    color: var(--on-surface);
+    overscroll-behavior: contain;
+}
+
+#membership-modal::backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Title and price share one row; the close button sits in the corner */
+#membership-modal .modal-title {
+    margin: 0 2.5rem 0.25rem 0;
+    color: var(--accent-text);
+    font-size: 1.25rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+#membership-modal .modal-body p {
+    margin: 0 0 0.5rem;
+}
+
+#membership-modal .modal-price {
+    color: var(--accent-text);
+    font-weight: bold;
+}
+
+/* Benefits stay in a single column with room between items */
+#membership-modal ul {
+    margin: 0;
+    padding-left: 1.1rem;
+}
+
+#membership-modal li {
+    margin-bottom: 0.6rem;
+}
+
+#membership-modal li:last-child {
+    margin-bottom: 0;
+}
+
+#membership-modal .close-button {
+    position: sticky;
+    float: right;
+    top: 0;
+    width: 2rem;
+    height: 2rem;
+    margin: 0 -0.25rem 0 0.5rem;
+    border: 1px solid var(--edge-line);
+    border-radius: 2px;
+    background-color: var(--surface-deep);
+    color: var(--accent-text);
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* 7b. Thank you
+   ========================================================================== */
+.thankyou-section {
+    display: grid;
+    gap: 1rem;
+    max-width: 40rem;
+    margin: 0 auto;
+}
+
+.thankyou-card {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--edge-line);
+    border-top: 3px solid var(--edge);
+    border-radius: 2px;
+    background-color: var(--surface);
+    box-shadow: 0 0 14px -6px var(--edge);
+    color: var(--on-surface);
+}
+
+.thankyou-card h2 {
+    margin: 0 0 0.5rem;
+    color: var(--accent-text);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.thankyou-card dl {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.4rem 1rem;
+    margin: 0;
+}
+
+.thankyou-card dt {
+    font-weight: bold;
+}
+
+.thankyou-card dd {
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+/* 8. Footer
    ========================================================================== */
 footer {
     padding: 0.5rem 0;

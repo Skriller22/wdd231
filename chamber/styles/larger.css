@@ -86,6 +86,24 @@
         font-size: 1rem;
     }
 
+    /* Join: form on the left, membership levels on the right */
+    .join-form-wrapper {
+        grid-template-columns: 3fr 2fr;
+        gap: 2rem;
+    }
+
+    /* Short fields pair up two across; the level, description, and submit span both */
+    .join-form {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 1rem;
+    }
+
+    .join-form label:has(select),
+    .join-form label:has(textarea),
+    .join-form .submit-btn {
+        grid-column: 1 / -1;
+    }
+
     /* Footer: contact, social icons, and copyright in one row */
     footer {
         display: flex;
