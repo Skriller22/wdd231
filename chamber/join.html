@@ -26,12 +26,12 @@
     <header>
         <div class="header-title">
             <img src="favicon.svg" class="logo-image" alt="Ishtar Station Chamber of Commerce Logo">
-            <h2>Ishtar Station Chamber of Commerce</h2>
+            <p class="site-name">Ishtar Station Chamber of Commerce</p>
             <button class="header-btn" id="theme-toggle" type="button" aria-label="Toggle theme">
-                <img src="images/light-mode.svg" alt="Toggle theme">
+                <img src="images/light-mode.svg" alt="">
             </button>
             <button class="header-btn" id="hamburger-close" type="button" aria-expanded="false" aria-label="Open menu" aria-controls="site-nav">
-                <img src="images/menu-open.svg" alt="Open menu">
+                <img src="images/menu-open.svg" alt="">
             </button>
         </div>
         <nav id="site-nav">
@@ -49,7 +49,7 @@
             <h1>Join the Ishtar Station Chamber of Commerce</h1>
             <p>Welcome to the Ishtar Station Chamber of Commerce! We are excited to have you join our community of local businesses.</p>
             <p>To become a member, please fill out the form below with your business information. Once submitted, our team will review your application and get back to you within 5-7 business days.</p>
-    
+
             <div class="join-form-wrapper">
                 <form method="get" action="thankyou.html" class="join-form">
                     <label for="first-name">First Name
@@ -85,30 +85,30 @@
                     <input type="hidden" id="timestamp" name="timestamp">
                     <button type="submit" class="submit-btn">Join the Chamber</button>
                 </form>
-            <div class="membership-levels">
-                <h2>Membership Levels</h2>
-                <button type="button" class="membership-level-card" data-level="np">
-                    <span class="level-name">NP Membership</span>
-                    <span class="level-desc">No fee for non-profit organizations. Enjoy access to networking events, business resources, and promotional opportunities.</span>
-                </button>
-                <button type="button" class="membership-level-card" data-level="bronze">
-                    <span class="level-name">Bronze Membership</span>
-                    <span class="level-desc">For a small fee, gain access to exclusive networking events, business resources, and promotional opportunities.</span>
-                </button>
-                <button type="button" class="membership-level-card" data-level="silver">
-                    <span class="level-name">Silver Membership</span>
-                    <span class="level-desc">For a moderate fee, enjoy enhanced access to networking events, business resources, and promotional opportunities.</span>
-                </button>
-                <button type="button" class="membership-level-card" data-level="gold">
-                    <span class="level-name">Gold Membership</span>
-                    <span class="level-desc">For a premium fee, receive the highest level of access to networking events, business resources, and promotional opportunities.</span>
-                </button>
-                <dialog id="membership-modal" aria-labelledby="membership-modal-title">
-                    <button type="button" class="close-button" aria-label="Close">&times;</button>
-                    <h2 class="modal-title" id="membership-modal-title"></h2>
-                    <div class="modal-body"></div>
-                </dialog>
-            </div>
+                <div class="membership-levels">
+                    <h2>Membership Levels</h2>
+                    <button type="button" class="membership-level-card" data-level="np">
+                        <span class="level-name">NP Membership</span>
+                        <span class="level-desc">No fee for non-profit organizations. Enjoy access to networking events, business resources, and promotional opportunities.</span>
+                    </button>
+                    <button type="button" class="membership-level-card" data-level="bronze">
+                        <span class="level-name">Bronze Membership</span>
+                        <span class="level-desc">For a small fee, gain access to exclusive networking events, business resources, and promotional opportunities.</span>
+                    </button>
+                    <button type="button" class="membership-level-card" data-level="silver">
+                        <span class="level-name">Silver Membership</span>
+                        <span class="level-desc">For a moderate fee, enjoy enhanced access to networking events, business resources, and promotional opportunities.</span>
+                    </button>
+                    <button type="button" class="membership-level-card" data-level="gold">
+                        <span class="level-name">Gold Membership</span>
+                        <span class="level-desc">For a premium fee, receive the highest level of access to networking events, business resources, and promotional opportunities.</span>
+                    </button>
+                    <dialog id="membership-modal" aria-labelledby="membership-modal-title">
+                        <button type="button" class="close-button" aria-label="Close">&times;</button>
+                        <h2 class="modal-title" id="membership-modal-title"></h2>
+                        <div class="modal-body"></div>
+                    </dialog>
+                </div>
             </div>
         </section>
     </main>
@@ -117,8 +117,8 @@
             <p><strong>Ishtar Station Chamber of Commerce</strong></p>
             <p>Venus, second planet from the Sun</p>
             <p>Central District</p>
-            <p>info@ishtarstation.com</p>
-            <p>(555) 123-4567</p>
+            <p><a href="mailto:info@ishtarstation.com">info@ishtarstation.com</a></p>
+            <p><a href="tel:+15551234567">(555) 123-4567</a></p>
         </div>
         <div class="footer-social">
             <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><img src="images/facebook.svg" alt="Facebook" class="icon"></a>

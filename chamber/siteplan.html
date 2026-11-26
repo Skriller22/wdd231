@@ -19,17 +19,18 @@
     <link href="styles/larger.css" rel="stylesheet">
     <script src="scripts/navigation.js" defer></script>
     <script src="scripts/theme.js" defer></script>
+    <script src="scripts/date.js" defer></script>
 </head>
 <body>
     <header>
         <div class="header-title">
             <img src="favicon.svg" class="logo-image" alt="Ishtar Station Chamber of Commerce Logo">
-            <h2>Ishtar Station Chamber of Commerce</h2>
+            <p class="site-name">Ishtar Station Chamber of Commerce</p>
             <button class="header-btn" id="theme-toggle" type="button" aria-label="Toggle theme">
-                <img src="images/light-mode.svg" alt="Toggle theme">
+                <img src="images/light-mode.svg" alt="">
             </button>
             <button class="header-btn" id="hamburger-close" type="button" aria-expanded="false" aria-label="Open menu" aria-controls="site-nav">
-                <img src="images/menu-open.svg" alt="Open menu">
+                <img src="images/menu-open.svg" alt="">
             </button>
         </div>
         <nav id="site-nav">
@@ -43,14 +44,13 @@
         </nav>
     </header>
     <main class="siteplan-main">
+        <h1>Site Plan</h1>
         <h2>Site Name</h2>
         <p>Ishtar Station Chamber of Commerce</p>
-        <br>
-        <h2>Site Description -- <strong>From the Author:</strong> </h2>
+        <h2>Site Description: From the Author</h2>
         <p>I was a little bored with the idea of creating a chamber of commerce website for my local community. I live in Rexburg, ID and I get the feeling that many chamber of commerce websites have been made for this place.
         <br>If it comes down to it, I will rename everything and find local images and businesses, I just feel that I can still demonstrate my abilities as well as my creativity by doing it this way. Contrary arguments are welcome and I will graciously accept alternative direction if it means improving my standing in the course.</p>
         <p>Thank you, <br><strong>Matthew Remington</strong></p>
-        <br>
         <h2>Site Purpose</h2>
         <p>
             This website will serve as a resource hub for businesses in Ishtar Station, Venus. 
@@ -133,5 +133,25 @@
         <h3>Mobile</h3>
         <img src="images/chamber-home-mobile-wireframe.webp" alt="Mobile wireframe for the Ishtar Station Chamber of Commerce website.">
     </main>
+    <footer>
+        <div class="footer-contact">
+            <p><strong>Ishtar Station Chamber of Commerce</strong></p>
+            <p>Venus, second planet from the Sun</p>
+            <p>Central District</p>
+            <p><a href="mailto:info@ishtarstation.com">info@ishtarstation.com</a></p>
+            <p><a href="tel:+15551234567">(555) 123-4567</a></p>
+        </div>
+        <div class="footer-social">
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><img src="images/facebook.svg" alt="Facebook" class="icon"></a>
+            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><img src="images/twitter.svg" alt="Twitter" class="icon"></a>
+            <a href="https://www.theplanetarysociety.org" target="_blank" rel="noopener noreferrer"><img src="images/theplanetarysociety.svg" alt="The Planetary Society" class="icon"></a>
+        </div>
+        <div class="footer-copyright">
+            <p>WDD231 Class Project</p>
+            <p>Matthew Remington - Idaho, USA</p>
+            <p>&copy; <span id="currentyear"></span> Ishtar Station Chamber of Commerce</p>
+            <p id="lastModified">Last Modification</p>
+        </div>
+    </footer>
 </body>
 </html>

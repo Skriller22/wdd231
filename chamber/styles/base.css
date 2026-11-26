@@ -1,6 +1,8 @@
 /* ==========================================================================
    Ishtar Station Chamber of Commerce - base (mobile-first) styles
-   Wider-screen overrides live in larger.css.
+   Wider-screen overrides live in larger.css (768px and up). The exception is
+   the Discover page, whose card layout follows the assignment's own
+   breakpoints (641px and 1025px), so its media queries stay in section 8.
 
    Contents
    1. Variables and resets
@@ -14,7 +16,9 @@
       4e. Membership spotlight
    5. Site plan
    6. Directory
-   7. Footer
+   7. Join and thank you
+   8. Discover
+   9. Footer
 
    Theming
    Dark is the default. Light mode is the class "light-mode" on <html>, set and
@@ -115,8 +119,10 @@ header {
     margin: 0.5rem 0.5rem 0.5rem 0;
 }
 
-.header-title h2 {
+.site-name {
     margin: 0;
+    font-size: 1.5em;
+    font-weight: 700;
 }
 
 .logo-image {
@@ -196,7 +202,8 @@ nav ul li a[aria-current="page"] {
 .spotlight-link a,
 .directory-view-toggle button,
 .join-form .submit-btn,
-.home-btn {
+.home-btn,
+.place-card button {
     border: 1px solid var(--edge-line);
     border-bottom: 3px solid var(--edge-line);
     background-color: var(--surface-deep);
@@ -216,7 +223,9 @@ nav ul li a[aria-current="page"],
 .directory-view-toggle button[aria-pressed="true"],
 .join-form .submit-btn:hover,
 .home-btn:hover,
-.home-btn:focus-visible {
+.home-btn:focus-visible,
+.place-card button:hover,
+.place-card button:focus-visible {
     border-bottom-color: var(--edge);
     background-color: var(--surface-deep);
     color: var(--accent-text);
@@ -228,7 +237,9 @@ nav ul li a[aria-current="page"],
 .spotlight-card,
 .sample-card,
 .join-form,
-.membership-level-card {
+.membership-level-card,
+.place-card,
+#visit-message {
     border: 1px solid var(--edge-line);
     border-top: 3px solid var(--edge);
     border-radius: 8px;
@@ -240,7 +251,8 @@ nav ul li a[aria-current="page"],
 .event-card h3,
 .bio-dome-weather h3,
 .spotlight-card h3,
-.sample-card h3 {
+.sample-card h3,
+.place-card h2 {
     color: var(--accent-text);
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -686,7 +698,7 @@ main {
     margin: 0;
 }
 
-/* 7. Join
+/* 7. Join and thank you
    ========================================================================== */
 .join-section {
     display: grid;
@@ -754,7 +766,8 @@ main {
 .join-form,
 .membership-level-card,
 .join-form .submit-btn,
-#membership-modal {
+#membership-modal,
+#visit-message {
     border-radius: 2px;
 }
 
@@ -974,7 +987,167 @@ main {
     overflow-wrap: anywhere;
 }
 
-/* 8. Footer
+/* 8. Discover
+   Cards sit in named grid areas (p1 to p8) that are rearranged per breakpoint:
+     small   up to 640px   one column
+     medium  641px+        two columns, first and last cards span the row
+     large   1025px+       four columns, with wide cards mixed in
+   Panel, button, and heading looks are shared with the rules in section 2.
+   ========================================================================== */
+.discover-section h1 {
+    margin: 0 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--edge);
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* Visitor message (panel look is shared; radius is set with the join form's) */
+#visit-message {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+#visit-message[hidden] {
+    display: none;
+}
+
+#visit-message p {
+    margin: 0;
+}
+
+#visit-message button {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid var(--edge-line);
+    border-radius: 2px;
+    background-color: var(--surface-deep);
+    color: var(--accent-text);
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* Card grid: small screens */
+#place-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "p1"
+        "p2"
+        "p3"
+        "p4"
+        "p5"
+        "p6"
+        "p7"
+        "p8";
+    gap: 1rem;
+}
+
+.place-card:nth-child(1) { grid-area: p1; }
+.place-card:nth-child(2) { grid-area: p2; }
+.place-card:nth-child(3) { grid-area: p3; }
+.place-card:nth-child(4) { grid-area: p4; }
+.place-card:nth-child(5) { grid-area: p5; }
+.place-card:nth-child(6) { grid-area: p6; }
+.place-card:nth-child(7) { grid-area: p7; }
+.place-card:nth-child(8) { grid-area: p8; }
+
+.place-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.75rem;
+}
+
+.place-card h2 {
+    margin: 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--edge-line);
+    font-size: 1.15rem;
+}
+
+.place-card figure {
+    margin: 0;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.place-card img {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.place-card address {
+    font-size: 0.9rem;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.place-card p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.place-card button {
+    margin-top: auto;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+/* Medium: two columns. The image hover effect is not applied on mobile. */
+@media screen and (min-width: 641px) {
+    #place-cards {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "p1 p1"
+            "p2 p3"
+            "p4 p5"
+            "p6 p7"
+            "p8 p8";
+    }
+
+    .place-card img {
+        transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    .place-card:hover img {
+        transform: scale(1.08);
+        filter: saturate(1.4) brightness(1.08);
+    }
+}
+
+/* Large: four columns with a mix of wide and single cards */
+@media screen and (min-width: 1025px) {
+    #place-cards {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+            "p1 p1 p2 p3"
+            "p4 p5 p6 p6"
+            "p7 p7 p8 p8";
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .place-card img {
+        transition: none;
+    }
+
+    .place-card:hover img {
+        transform: none;
+    }
+}
+
+
+/* 9. Footer
    ========================================================================== */
 footer {
     padding: 0.5rem 0;

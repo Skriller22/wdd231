@@ -10,7 +10,6 @@ function updateTheme(isLightMode) {
 
 	if (themeIcon) {
 		themeIcon.src = isLightMode ? 'images/dark-mode.svg' : 'images/light-mode.svg';
-		themeIcon.alt = label;
 	}
 
 	themeToggle?.setAttribute('aria-label', label);
