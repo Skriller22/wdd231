@@ -1,0 +1,384 @@
+/* ==========================================================================
+   Frugal Feast - base (mobile-first) styles
+   Starter styles drawn from the Design Brief in siteplan.html.
+   Wider-screen overrides belong in larger.css.
+
+   Contents
+   1. Variables and resets
+   2. Header and navigation
+   3. Main and typography
+   4. Cards
+   5. Buttons
+   6. Site plan
+   7. Footer
+   ========================================================================== */
+
+
+/* 1. Variables and resets
+   ========================================================================== */
+:root {
+    /* Primary: green (freshness and wealth) */
+    --primary-color: #2e9e5b;
+    --primary-color-dark: #1f7a43;
+    --primary-color-darker: #175c33;
+    --primary-color-light: #d9f0e2;
+    /* Secondary: mustard (warmth and comfort) */
+    --secondary-color: #e1ad01;
+    --secondary-color-dark: #b88c00;
+    --secondary-color-light: #f7e6a6;
+    /* Tertiary: tomato red (appetite and energy) */
+    --tertiary-color: #c93b26;
+    --tertiary-color-light: #f6d5cf;
+    /* Neutrals: the background is kitchen white (cleanliness and simplicity) */
+    --background-color: #fbfaf6;
+    --card-bg: #ffffff;
+    --chrome-bg: #f7f5ef;
+    --text-color: #000000;
+    --font-heading: 'Fredoka', sans-serif;
+    --font-family: 'Nunito', sans-serif;
+    --font-recipe: 'Lora', Georgia, serif;
+    --transition: 0.4s ease;
+    --max-render-width: 2048px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: var(--max-render-width);
+    margin: 0 auto;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    line-height: 1.5;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: var(--primary-color-dark);
+    transition: color var(--transition);
+}
+
+a:hover,
+a:focus-visible {
+    color: var(--tertiary-color);
+}
+
+
+/* 2. Header and navigation
+   ========================================================================== */
+header {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--chrome-bg);
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 0.5rem 1rem;
+}
+
+.header-title h2 {
+    margin: 0;
+    color: var(--primary-color-dark);
+}
+
+.logo-image {
+    width: 64px;
+    height: 64px;
+}
+
+.header-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color var(--transition), border-color var(--transition);
+}
+
+.header-btn:hover,
+.header-btn:focus-visible {
+    background-color: var(--primary-color-light);
+    border-color: var(--primary-color);
+}
+
+.header-btn img {
+    width: 24px;
+    height: 24px;
+}
+
+/* The menu is collapsed on mobile; navigation.js toggles .open */
+#site-nav {
+    display: none;
+}
+
+#site-nav.open {
+    display: block;
+}
+
+/* Cookbook index tabs: each tab cycles through green, mustard, and tomato.
+   On mobile they are side tabs; larger.css turns them into top tabs. */
+nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin: 0;
+    padding: 0.5rem 1rem 0.75rem 0;
+    list-style: none;
+}
+
+nav ul li:nth-child(3n + 1) {
+    --tab: var(--primary-color);
+    --tab-tint: var(--primary-color-light);
+}
+
+nav ul li:nth-child(3n + 2) {
+    --tab: var(--secondary-color);
+    --tab-tint: var(--secondary-color-light);
+}
+
+nav ul li:nth-child(3n) {
+    --tab: var(--tertiary-color);
+    --tab-tint: var(--tertiary-color-light);
+}
+
+nav ul li a {
+    display: block;
+    padding: 0.6rem 1rem;
+    color: var(--text-color);
+    text-decoration: none;
+    background-color: var(--tab-tint);
+    border: 2px solid var(--tab);
+    border-left-width: 8px;
+    border-radius: 0 12px 12px 0;
+    transition: background-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+nav ul li a:hover,
+nav ul li a:focus-visible {
+    transform: translateX(8px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* The open tab sticks out the furthest, like the page you are on */
+nav ul li a[aria-current="page"] {
+    background-color: var(--card-bg);
+    font-weight: bold;
+    transform: translateX(12px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+/* 3. Main and typography
+   ========================================================================== */
+main {
+    padding: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-heading);
+    color: var(--primary-color-dark);
+    line-height: 1.2;
+}
+
+h2 {
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+
+/* 4. Cards
+   Off-white with a subtle shadow, like recipes on a counter.
+   ========================================================================== */
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--primary-color-light);
+    border-top: 4px solid var(--tertiary-color);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.card:hover {
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+
+/* Recipe cards use a classic cookbook serif, and only here */
+.recipe-card,
+.recipe-card h2,
+.recipe-card h3,
+.recipe-card h4 {
+    font-family: var(--font-recipe);
+}
+
+/* 5. Buttons
+   Slow, smooth transitions; they should feel like kitchen appliances.
+   ========================================================================== */
+.button {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background-color: var(--primary-color-dark);
+    color: var(--background-color);
+    border: none;
+    border-bottom: 4px solid var(--primary-color-darker);
+    border-radius: 8px;
+    font: inherit;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color var(--transition), transform var(--transition), border-bottom-width var(--transition);
+}
+
+.button:hover,
+.button:focus-visible {
+    background-color: var(--primary-color-darker);
+    color: var(--background-color);
+}
+
+.button:active {
+    transform: translateY(2px);
+    border-bottom-width: 2px;
+}
+
+
+/* 6. Site plan
+   ========================================================================== */
+.siteplan-main {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.siteplan-main h2 {
+    margin-top: 1.5rem;
+}
+
+.siteplan-main li {
+    margin-bottom: 0.5rem;
+}
+
+/* Palette swatches in the Design Brief */
+.swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.75rem;
+    padding: 0;
+    list-style: none;
+}
+
+.swatches li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.swatch {
+    display: block;
+    height: 56px;
+    border: 1px solid var(--primary-color-light);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.sample-card {
+    max-width: 360px;
+}
+
+.sample-card h4 {
+    margin-top: 0;
+}
+
+.siteplan-main img {
+    display: block;
+    border: 1px solid var(--primary-color-light);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+
+/* 7. Footer
+   ========================================================================== */
+footer {
+    padding: 1rem;
+    background-color: var(--chrome-bg);
+    border-top: 3px solid var(--primary-color);
+}
+
+footer p {
+    margin: 0.25rem 0;
+}
+
+/* Two columns: info on the left, socials on the right */
+.footer-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-info {
+    text-align: left;
+}
+
+.footer-social {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+/* Last modified and developer details run across the bottom */
+.footer-bottom {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--primary-color-light);
+    font-size: 0.9rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem 1.5rem;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+.footer-social a {
+    display: flex;
+    padding: 0.4rem;
+    border-radius: 8px;
+    transition: background-color var(--transition), transform var(--transition);
+}
+
+.footer-social a:hover,
+.footer-social a:focus-visible {
+    background-color: var(--primary-color-light);
+    transform: translateY(-2px);
+}
+
+.footer-social img {
+    width: 32px;
+    height: 32px;
+}

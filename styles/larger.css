@@ -60,6 +60,38 @@
         margin-left: 1rem;
     }
 
+    .final-link {
+        border-top: var(--branding-bd1);
+        border-left: var(--branding-bd1);
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+
+    .final-link:hover {
+        position: relative;
+        top: -2px;
+        left: -2px;
+    }
+
+    .final-link h1 {
+        padding-left: 1rem;
+        grid-column: 1 / -1;
+        grid-row: 1;
+    }
+
+    .final-link p {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .final-link img {
+        grid-column: 1;
+        grid-row: 2;
+        width: 128px;
+        height: auto;
+        margin-left: 1rem;
+    }
+
     main h1 {
         text-align: left;
     }

@@ -180,6 +180,34 @@ nav ul li a[aria-current="page"] {
     align-items: center;
 }
 
+/* Final link styles */
+.final-link {
+    background-color: var(--branding-c4);
+    border: var(--branding-bd1);
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+}
+
+.final-link p {
+    margin-bottom: 1rem;
+}
+
+.final-link h1 {
+    background-color: var(--branding-c3);
+    width: 100%;
+    padding: 4px;
+    margin-bottom: 1rem;
+}
+
+.final-link div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .centered {
     display: flex;
     justify-content: center;

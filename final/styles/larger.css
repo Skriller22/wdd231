@@ -1,0 +1,58 @@
+/* Frugal Feast - wider-screen overrides (tablet and desktop) */
+@media screen and (min-width: 768px) {
+    /* Header: logo and title on the left, navigation inline on the right */
+    /* Tabs sit along the bottom edge of the header */
+    header {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding: 0 1rem;
+    }
+
+    .header-title {
+        align-self: center;
+        justify-content: flex-start;
+    }
+
+    #hamburger-close {
+        display: none;
+    }
+
+    #site-nav {
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: row;
+        align-items: flex-end;
+        gap: 0.35rem;
+        padding: 0;
+    }
+
+    /* Top tabs: rounded top corners, no bottom edge, overlapping the header line */
+    nav ul li a {
+        position: relative;
+        padding: 0.7rem 1.25rem;
+        border-width: 2px 2px 0;
+        border-radius: 12px 12px 0 0;
+        margin-bottom: -3px;
+    }
+
+    nav ul li a:hover,
+    nav ul li a:focus-visible {
+        transform: translateY(-4px);
+    }
+
+    /* The current tab joins the page below it by covering the header line */
+    nav ul li a[aria-current="page"] {
+        background-color: var(--background-color);
+        padding-bottom: calc(0.7rem + 3px);
+        transform: none;
+        box-shadow: none;
+        z-index: 1;
+    }
+
+    main {
+        padding: 2rem;
+    }
+}

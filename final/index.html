@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frugal Feast: budget-friendly meal ideas and a community of cooks who love to eat well without overspending.">
+    <meta name="author" content="Matthew Remington">
+    <link rel="icon" href="favicon.svg">
+    <title>Frugal Feast</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Lora:wght@400;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link href="styles/base.css" rel="stylesheet">
+    <link href="styles/larger.css" rel="stylesheet">
+    <script src="scripts/date.js" defer></script>
+    <script src="scripts/navigation.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="header-title">
+            <img src="favicon.svg" class="logo-image" alt="Frugal Feast logo">
+            <h2>Frugal Feast</h2>
+            <button class="header-btn" id="hamburger-close" type="button" aria-expanded="false" aria-label="Open menu" aria-controls="site-nav">
+                <img src="images/menu-open.svg" alt="Open menu">
+            </button>
+        </div>
+        <nav id="site-nav">
+            <ul>
+                <li><a href="index.html" aria-current="page">Home</a></li>
+                <!-- [Add one link per page of the site.] -->
+                <li><a href="siteplan.html">Site Plan</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Frugal Feast</h1>
+        <!-- [Page content goes here.] -->
+    </main>
+    <footer>
+        <div class="footer-columns">
+            <div class="footer-info">
+                <p><strong>Frugal Feast</strong></p>
+                <p>WDD231 Final Project</p>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.facebook.com" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><img src="images/facebook.svg" alt="" width="32" height="32"></a>
+                <a href="https://www.instagram.com" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><img src="images/instagram.svg" alt="" width="32" height="32"></a>
+                <a href="https://x.com" aria-label="X (Twitter)" target="_blank" rel="noopener noreferrer"><img src="images/twitter.svg" alt="" width="32" height="32"></a>
+                <a href="https://www.threads.com" aria-label="Threads" target="_blank" rel="noopener noreferrer"><img src="images/threads.svg" alt="" width="32" height="32"></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Matthew Remington - Idaho, USA</p>
+            <p>&copy; <span id="currentyear"></span> Frugal Feast</p>
+            <p id="lastModified">Last Modification</p>
+        </div>
+    </footer>
+</body>
+</html>
