@@ -4,7 +4,7 @@ const cardContainer = document.querySelector("#place-cards");
 const visitMessage = document.querySelector("#visit-message");
 
 // Build one card per place: h2, figure, address, paragraph, button
-function buildCard(place) {
+function buildCard(place, index) {
     const card = document.createElement("section");
     card.className = "place-card";
 
@@ -17,7 +17,12 @@ function buildCard(place) {
     img.alt = place.alt;
     img.width = 300;
     img.height = 200;
-    img.loading = "lazy";
+    // The first cards are visible on load, so they should not be lazy-loaded
+    if (index < 2) {
+        img.fetchPriority = "high";
+    } else {
+        img.loading = "lazy";
+    }
     figure.append(img);
 
     const address = document.createElement("address");
@@ -35,7 +40,7 @@ function buildCard(place) {
     return card;
 }
 
-places.forEach(place => cardContainer.append(buildCard(place)));
+places.forEach((place, index) => cardContainer.append(buildCard(place, index)));
 
 // Visitor message, based on the last visit stored in localStorage
 function showVisitMessage() {

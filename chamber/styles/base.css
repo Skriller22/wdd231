@@ -1048,6 +1048,7 @@ main {
         "p7"
         "p8";
     gap: 1rem;
+    min-height: 100vh; /* reserves space so the footer does not jump when the cards are inserted */
 }
 
 .place-card:nth-child(1) { grid-area: p1; }
